@@ -1,0 +1,46 @@
+<dx-chart
+    [dataSource]="dataSource"
+    [palette]="palette"
+    [argumentAxis]="argumentAxis"
+    [valueAxis]="valueAxis"
+    [series]="[
+        { valueField: 'AmountAdd', argumentField: 'MonthStarts', name: 'ВЫРУЧКА, РУБ', axis: 'amount', type:'bar', tag: 'calculateTotal', color: '#e8c168' },
+        { valueField: 'AmountProfit', argumentField: 'MonthStarts', name: 'ВАЛОВАЯ ПРИБЫЛЬ, РУБ', axis: 'amount', type:'bar',tag: 'calculateTotal',  color:'#99b57d' },
+        { valueField: 'AmountProfitPercent', argumentField: 'MonthStarts', name: 'НАЦЕНКА, %', axis: 'percent', type:'spline', tag: 'calculatePercent', point: {visible: false},color: '#3366ff' }
+    ]"
+>    
+    <dxo-common-series-settings
+        argumentField="state"
+        type="bar"
+        tagField="tag" 
+    >
+        <dxo-label [visible]="false"></dxo-label>
+    </dxo-common-series-settings>
+    <dxo-title 
+        [text]="title"
+        horizontalAlignment="left"
+    >
+        <dxo-font size="14"></dxo-font>
+    </dxo-title>
+    <dxo-legend
+        [visible]="true"
+        verticalAlignment="bottom"
+        horizontalAlignment="center"
+    >        
+    </dxo-legend>
+    <dxo-loading-indicator
+        show="true"
+        text="Загрузка данных..."
+    >
+    </dxo-loading-indicator>    
+    <dxo-tooltip
+        enabled="true"
+        [customizeTooltip]="customizeTooltip"
+    >
+        <dxo-format
+            type="currency"
+            precision="2"
+        ></dxo-format>
+        <dxo-font color="959595"></dxo-font>
+    </dxo-tooltip>
+</dx-chart>

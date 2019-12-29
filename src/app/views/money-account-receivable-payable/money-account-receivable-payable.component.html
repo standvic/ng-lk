@@ -1,0 +1,31 @@
+<app-caption>{{"MONEY_ACCOUNT_RECEIVABLE_PAYABLE_PAGE.CAPTION" | translate}}</app-caption>
+
+<app-money-dynamic-chart 
+    #chart1 
+    [dataSource]="chartDataSource1" 
+    [series]="chartSeries" 
+    [rowCount]="3"
+    [valueAxis]="valueAxis"
+    [tooltip]="tooltip"
+    [caption]="'MONEY_ACCOUNT_RECEIVABLE_PAYABLE_PAGE.CHART1_CAPTION' | translate">
+</app-money-dynamic-chart>
+
+<app-money-dynamic-chart 
+    #chart2 
+    [dataSource]="chartDataSource2" 
+    [series]="chartSeries" 
+    [rowCount]="3"
+    [valueAxis]="valueAxis"
+    [tooltip]="tooltip"
+    [caption]="'MONEY_ACCOUNT_RECEIVABLE_PAYABLE_PAGE.CHART2_CAPTION' | translate">
+</app-money-dynamic-chart>
+
+<app-money-dynamic-chart 
+    #chart3 
+    [dataSource]="chartDataSource3" 
+    [series]="chartSeries" 
+    [rowCount]="3"
+    [valueAxis]="valueAxis"
+    [tooltip]="tooltip"
+    [caption]="'MONEY_ACCOUNT_RECEIVABLE_PAYABLE_PAGE.CHART3_CAPTION' | translate">
+</app-money-dynamic-chart>

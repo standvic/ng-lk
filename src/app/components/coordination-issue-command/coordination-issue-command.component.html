@@ -1,0 +1,13 @@
+<dx-button
+    id="button"
+    [text]="'TASK_COMMANDS.COORDINATION' | translate"
+    type="default"
+    icon="edit"
+    (onClick)="coordinationButton($event)"
+    [(visible)]="coordinationVisible">
+</dx-button>&nbsp;
+
+<dx-load-panel 
+    [(visible)]="loadingPanelVisible"
+    [position]="{ of: '#button' }">
+</dx-load-panel>

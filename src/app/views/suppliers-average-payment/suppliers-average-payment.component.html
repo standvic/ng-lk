@@ -1,0 +1,107 @@
+<app-caption>{{"SUPPLIERS_AVERAGE_PAYMENT_PAGE.CAPTION" | translate}}</app-caption>
+<dx-chart 
+    [dataSource]="chartTurnoverDataSource"
+    palette="Harmony Light"
+    [valueAxis]="[{
+                name: 'Value',
+                position:'left',
+                tickInterval: 10,
+                format: 'decimal',
+                title: {
+                    text: 'СРЕДНИЙ СРОК ОПЛАТЫ, ДНИ'
+                }
+            }]"
+    [series]="[{
+        type: 'line',
+        name: 'СРЕДНИЙ СРОК ОПЛАТЫ',
+        axis: 'Value',
+        valueField: 'PaybackDays',
+        color: '#DA5859',
+        point: {
+            visible: false
+        }
+    }]"
+>
+    <dxo-common-series-settings 
+        argumentField="TransactionDate"
+    >        
+    </dxo-common-series-settings>
+    <dxo-title 
+        horizontalAlignment="left">
+        <dxo-font size="14"></dxo-font>
+    </dxo-title>
+    <dxo-legend [visible]="false"></dxo-legend>
+    <dxo-loading-indicator 
+        show="true"
+        text="Загрузка данных...">
+    </dxo-loading-indicator>
+    <dxo-argument-axis>
+        <dxo-label type="monthAndDay"></dxo-label>
+    </dxo-argument-axis>
+    <dxo-tooltip [enabled]="true"
+                 [shared]="true"
+                 [customizeTooltip]="customizeTooltip"
+    >
+        <dxo-font color="#959595">
+        </dxo-font>
+        <dxo-format type="currency"
+                    precision="2">
+        </dxo-format>
+    </dxo-tooltip>
+</dx-chart>
+<br/><br/>
+<dx-data-grid
+    [dataSource]="dataAccountSource"
+    [showColumnLines]="false"
+    [showBorders]="false"
+    noDataText="'---'"
+    [hoverStateEnabled]="true"
+    (onCellClick)="cellClick($event)"
+    (onCellHoverChanged) ="cellHoverChanged($event)"
+    [columns]="columns"
+>
+    <dxo-selection mode="single"></dxo-selection>
+    <dxo-sorting mode="none"></dxo-sorting>
+    <dxo-header-filter visible="true"></dxo-header-filter>
+    <dxo-filter-row visible="auto"></dxo-filter-row>
+    <dxo-load-panel
+        height="150"
+        width="400"
+        [text]="'LOADING_INDICATOR' | translate"
+    >
+    </dxo-load-panel>        
+    <dxo-export
+        enabled="true"
+        [fileName]="'SUPPLIERS_AVERAGE_PAYMENT_PAGE.EXPORTFILE_NAME' | translate"
+    >
+    </dxo-export>        
+</dx-data-grid>
+
+<dx-popup
+        class="popup"
+        width="80%"
+        height="95%"
+        [showTitle]="true"
+        [title]="title"
+        [dragEnabled]="true"
+        [closeOnOutsideClick]="true"
+        [(visible)]="popupVisible"
+>
+    <div *dxTemplate="let data of 'content'">
+        <app-popup-turnover-content 
+            [company]="company"
+            [contract]="contract"
+            [agent]="agent"
+            [delay]="delay"
+            [currency]="currency"
+            [creditAmount]="creditAmount"
+            [contractID]="contractID"
+            [popwidth]="popwidth"
+            [popheight]="popheight"
+            [dataSourceLineChart]="dataDebt"
+            [dataSourceBarChart]="dataShipmentPayment"
+            [selectorScale]="selectorScale"
+        >
+        </app-popup-turnover-content>
+    </div>
+</dx-popup>

@@ -1,0 +1,33 @@
+
+<div class="doughnut-content" [style.float]="float=='left'?'left':'right'">
+    <div class="dashboard-bottom">
+        <div class="dashboard-text">{{label}}</div>
+    </div>
+    <dx-pie-chart #pie
+        palette="soft"
+        [dataSource]="pieDataSource">
+        <dxi-series
+            type="doughnut"
+            [argumentField]="argumentField"
+            name="Add"
+            [valueField]="valueField">
+            <dxo-small-values-grouping
+                groupName="{{'OTHER_GROUP' | translate}}"
+                mode="topN"
+                topCount="10">
+            </dxo-small-values-grouping>
+            <dxo-label [visible]="true"
+                       [customizeText]="customizeText"
+                       >
+                <dxo-connector visible="true"></dxo-connector>
+            </dxo-label>
+        </dxi-series>
+        <dxo-tooltip
+            enabled="true"
+            [customizeTooltip]="customizeTooltip"
+        >
+        </dxo-tooltip>
+        <dxo-legend [visible]="false"></dxo-legend>
+        <dxo-loading-indicator show="true" text="{{'LOADING_INDICATOR' | translate}}"></dxo-loading-indicator>
+    </dx-pie-chart>
+</div>

@@ -1,0 +1,8 @@
+
+<div style="text-align: center; width: 100%;">    
+    <dx-button #buttonLeftOptions text="<<" type="normal" focusStateEnabled="false" (onClick)="onLeftOptBtnClick()"></dx-button>
+    <dx-button #buttonCurrentMonthOptions text="{{'DATE_BUTTONS.CURRENT_MONTH_BUTTON' | translate}}" style="margin-left: 5px;margin-right: 5px;" (onClick)="onMonthBtnClick()"></dx-button>
+    <dx-button #buttonCurrentQuarterOptions text="{{'DATE_BUTTONS.CURRENT_QUART_BUTTON' | translate}}" (onClick)="onQuarterBtnClick()"></dx-button>
+    <dx-button #buttonCurrentYearOptions text="{{'DATE_BUTTONS.CURRENT_YEAR_BUTTON' | translate}}" type="default" style="margin-left: 5px;margin-right: 5px;" (onClick)="onYearBtnClick()"></dx-button>
+    <dx-button #buttonRightOptions text=">>" type="normal" focusStateEnabled="false" disabled="true" (onClick)="onRightOptBtnClick()"></dx-button>
+</div>

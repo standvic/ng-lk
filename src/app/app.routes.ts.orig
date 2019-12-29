@@ -1,0 +1,118 @@
+import { Routes } from '@angular/router';
+import { 
+    MainComponent, SignInComponent, SignOutComponent, MoneyAccountReceivablePayableComponent, MoneyDynamicBalanceComponent,
+    MoneyAccountReceivableComponent, MoneyAccountPayableComponent, ProfitTrendsComponent, MoneyOutdatedAccountReceivableComponent,
+    MoneyOutdatedAccountPayableComponent, MoneyAccountReceivableWithOverdureComponent, MoneyAccountPayableWithOverdureComponent,
+    MoneyBalanceComponent, MoneyTurnoverComponent, MoneyAgentTurnoverComponent, MoneyCheckoutTurnoverComponent, MoneyCashBalanceComponent,
+    MoneyCustomerReturnsComponent
+} from './views';
+import { AuthGuardService } from './services/auth-guard/auth-guard.service';
+
+export const appRoutes: Routes = [
+{
+    data: {title: 'Главная'},
+    path: 'main',
+    component: SignInComponent,
+},{
+    path: 'money',
+    data: { title: 'Деньги' },
+    children: [
+        { 
+        path: 'moneyDynamicBalance',
+        component: MoneyDynamicBalanceComponent,
+        data: {title: 'Динамика остатка на р/c'} 
+        },
+        { 
+        path: 'moneyBalance',
+        component: MoneyBalanceComponent,
+        data: {title: 'Остатки по компаниям'} 
+        },
+        { 
+        path: 'moneyTurnover',
+        component: MoneyTurnoverComponent,
+        data: {title: 'Обороты по компаниям'} 
+        },
+        { 
+        path: 'moneyAgentTurnover',
+        component: MoneyAgentTurnoverComponent,
+        data: {title: 'Обороты по контрагентам'} 
+        },
+        { 
+        path: 'moneyCheckoutTurnover',
+        component: MoneyCheckoutTurnoverComponent,
+        data: {title: 'Обороты по кассе'} 
+        },
+        { 
+        path: 'moneyCashBalance',
+        component: MoneyCashBalanceComponent,
+        data: {title: 'ДДС'} 
+        },
+        { 
+        path: 'moneyCustomerReturns',
+        component: MoneyCustomerReturnsComponent,
+        data: {title: 'Возвраты покупателям'} 
+        }
+    ] 
+}, {
+    path: 'institute',
+    data: { title: 'Дебиторы/Кредиторы' },
+    children: [
+        { 
+        path: 'moneyAccountReceivablePayable',
+        component: MoneyAccountReceivablePayableComponent,
+        data: {title: 'Динамика задолженности'} 
+        },
+        { 
+        path: 'moneyAccountReceivable',
+        component: MoneyAccountReceivableComponent,
+        data: {title: 'Дебиторская задолженность'} 
+        },
+        { 
+        path: 'moneyOutdatedAccountReceivable',
+        component: MoneyOutdatedAccountReceivableComponent,
+        data: {title: 'Дебиторская задолженность со сроками давности'} 
+        },
+        { 
+        path: 'moneyAccountReceivableWithOverdue',
+        component: MoneyAccountReceivableWithOverdureComponent,
+        data: {title: 'Просроченная дебиторская задолженность'} 
+        },
+        { 
+        path: 'moneyAccountPayable',
+        component: MoneyAccountPayableComponent,
+        data: {title: 'Кредиторская задолженность'} 
+        },
+        { 
+        path: 'moneyOutdatedAccountPayable',
+        component: MoneyOutdatedAccountPayableComponent,
+        data: {title: 'Кредиторская задолженность со сроками давности'} 
+        },
+        { 
+        path: 'moneyAccountPayableWithOverdue',
+        component: MoneyAccountPayableWithOverdureComponent,
+        data: {title: 'Просроченная кредиторская задолженность'} 
+        }
+    ] 
+}, {
+    path: 'profit',
+    data: { title: 'Прибыль' },
+    children: [
+        { 
+        path: 'profitTrends',
+        component: ProfitTrendsComponent,
+        data: {title: 'Понедельная валовая прибыль'} 
+        }
+    ] 
+}, {
+    path: 'signIn',
+    component: SignInComponent,
+}, {
+    path: 'signOut',
+    component: SignOutComponent,
+}, {
+    path: '',
+    component: MainComponent,
+    canActivate: [AuthGuardService],
+    //redirectTo: 'main',
+    //pathMatch: 'full'
+}];

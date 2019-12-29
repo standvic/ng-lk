@@ -1,0 +1,9 @@
+<app-caption>{{"MONEY_DYNAMIC_BALANCE_PAGE.CAPTION" | translate}}</app-caption>
+
+<app-money-dynamic-chart #myChart 
+    [dataSource]="chartDataSource" 
+    [series]="chartSeries" 
+    [customizeLegendText]="customizeLegendText"
+    [valueAxis]="valueAxis"
+    [tooltip]="tooltip"
+    [caption]="'MONEY_DYNAMIC_BALANCE_PAGE.CHART_CAPTION' | translate"></app-money-dynamic-chart>

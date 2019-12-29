@@ -1,0 +1,172 @@
+{
+    "LOADING_INDICATOR": "Загрузка данных...",
+    "DATE_BUTTONS": {
+        "CURRENT_YEAR_BUTTON": "Текущий год",
+        "CURRENT_QUART_BUTTON": "Текущий квартал",
+        "CURRENT_MONTH_BUTTON": "Текущий месяц"
+    },
+    "LANG": {
+        "TITLE": "Русский",
+        "SELECT": "Выберите язык"
+    },
+    "MAIN_PAGE": {
+        "CASH_FLOW": {
+            "CAPTION": "ДЕНЕЖНЫЙ ПОТОК",
+            "GRID": {
+                "NAME_COLUMN": "ОСТАТКИ ДЕНЕЖНЫХ СРЕДСТВ, ТЫС.",
+                "RUB_COLUMN": "RUB",
+                "USD_COLUMN": "USD",
+                "EUR_COLUMN": "EUR",
+                "CURRENCY_BALANCE_COLUMN": "В валюте баланса"
+            }
+        },
+        "FINANCIAL_CYCLE": {
+            "CAPTION": "ФИНАНСОВЫЙ ЦИКЛ"
+        },
+        "BALANCE": {
+            "CAPTION": "БАЛАНС"
+        }
+    },
+    "MONEY_ACCOUNT_RECEIVABLE_PAGE":{
+        "CAPTION": "ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ",
+        "DATE_BOX_CAPTION": "ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ НА ДАТУ:"
+    },
+    "MONEY_ACCOUNT_PAYABLE_PAGE":{
+        "CAPTION": "КРЕДИТОРСКАЯ ЗАДОЛЖЕННОСТЬ",
+        "DATE_BOX_CAPTION": "КРЕДИТОРСКАЯ ЗАДОЛЖЕННОСТЬ НА ДАТУ:"
+    },
+    "MONEY_OUTDATED_ACCOUNT_RECEIVABLE_PAGE":{
+        "CAPTION": "ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ СО СРОКАМИ ДАВНОСТИ"
+    },
+    "MONEY_OUTDATED_ACCOUNT_PAYABLE_PAGE":{
+        "CAPTION": "КРЕДИТОРСКАЯ ЗАДОЛЖЕННОСТЬ СО СРОКАМИ ДАВНОСТИ"
+    },
+    "MONEY_ACCOUNT_RECEIVABLE_WITH_OVERDURE_PAGE":{
+        "CAPTION": "ПРОСРОЧЕННАЯ ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ"
+    },
+    "MONEY_ACCOUNT_PAYABLE_WITH_OVERDURE_PAGE":{
+        "CAPTION": "ПРОСРОЧЕННАЯ КРЕДИТОРСКАЯ ЗАДОЛЖЕННОСТЬ"
+    },
+    "MONEY_DYNAMIC_BALANCE_PAGE": {
+        "CAPTION": "ДИНАМИКА ОСТАТКА НА Р/С",
+        "CHART_CAPTION": "ДИНАМИКА СУММАРНОГО ОСТАТКА, РУБ"
+    },
+    "MONEY_BALANCE_PAGE": {
+        "CAPTION": "ОСТАТКИ ДЕНЕЖНЫХ СРЕДСТВ НА РАСЧЁТНЫХ СЧЕТАХ",
+        "DATEBOX_CAPTION": "ОСТАТКИ НА ДАТУ:",
+        "PIVOT_GRID": {
+            "COLUMNS": {
+                "COLUMN1": "Валюта"
+            },
+            "ROWS": {
+                "ROW1": "Компания",
+                "ROW2": "Банк"
+            },
+            "DATAS": {
+                "DATA1": "Остатки"
+            }
+        }
+    },
+    "MONEY_TURNOVER_PAGE": {
+        "CAPTION": "ОБОРОТЫ ДЕНЕЖНЫХ СРЕДСТВ ПО КОМПАНИЯМ/БАНКАМ",
+        "LEFT_GAUGE_TITLE": "ПО БАНКАМ",
+        "RIGHT_GAUGE_TITLE": "ПО СТАТЬЯМ ДДС",
+        "PIVOT_GRID": {
+            "COLUMNS": {
+                "COLUMN1": "Дата"
+            },
+            "ROWS": {
+                "ROW1": "Компания",
+                "ROW2": "Статья затрат",
+                "ROW3": "Банк"
+            },
+            "DATAS": {
+                "DATA1": "Поступления",
+                "DATA2": "Выбытия"
+            }
+        }
+    },
+    "MONEY_AGENT_TURNOVER_PAGE": {
+        "CAPTION": "ОБОРОТЫ ДЕНЕЖНЫХ СРЕДСТВ ПО КОНТРАГЕНТАМ",
+        "LEFT_GAUGE_TITLE": "ВЫБЫТИЯ",
+        "RIGHT_GAUGE_TITLE": "ПОСТУПЛЕНИЯ",
+        "PIVOT_GRID": {
+            "ROWS": {
+                "ROW1": "Тип контрагента",
+                "ROW2": "Контрагент",
+                "ROW3": "Статья затрат",
+                "ROW4": "Компания",
+                "ROW5": "Банк"
+            },
+            "DATAS": {
+                "DATA1": "Поступления",
+                "DATA2": "Выбытия"
+            }
+        }
+    },
+    "MONEY_CHECKOUT_TURNOVER_PAGE": {
+        "CAPTION": "ОБОРОТЫ ПО КАССЕ",
+        "PIVOT_GRID": {
+            "ROWS": {
+                "ROW1": "Группа",
+                "ROW2": "Контрагент"
+            },
+            "DATAS": {
+                "DATA1": "Поступления",
+                "DATA2": "Выбытия"
+            }
+        }
+    },
+    "MONEY_CASH_BALANCE_PAGE": {
+        "CAPTION": "ОТЧЕТ ПО ДВИЖЕНИЮ ДЕНЕЖНЫХ СРЕДСТВ",
+        "TREE_LIST_COLUMNS": {
+            "COLUMN1": "Валюта",
+            "COLUMN2": "Вх. остаток",
+            "COLUMN3": "Поступления",
+            "COLUMN4": "Выбытия",
+            "COLUMN5": "Исх. остаток"
+        },
+        "PIVOT_GRID": {
+            "DATE_CHECKBOX_TITLE": "Группировать по дате",
+            "ROWS": {
+                "ROW1": "Группа статей ДДС",
+                "ROW2": "Статья ДДС",
+                "ROW3": "Тип"
+            },
+            "COLUMNS": {
+            "COLUMN1": "Валюта"
+            },
+            "DATAS": {
+                "DATA1": "Дата",
+                "DATA2": "Сумма"
+            }
+        },
+        "POPUP_WINDOW": {
+            "TITLE": "Документы",
+            "GRID_COLUMNS": {
+                "COLUMN1": "Дата проведения",
+                "COLUMN2": "Код",
+                "COLUMN3": "Описание",
+                "COLUMN4": "Сумма",
+                "COLUMN5": "Валюта"
+            }
+        }
+    },
+    "MONEY_CASH_BALANCE_PAGE": {
+        "CAPTION": "ВОЗВРАТЫ ДЕНЕЖНЫХ СРЕДСТВ ПОКУПАТЕЛЯМ",
+        "PIVOT_GRID": {
+            "DATE_CHECKBOX_TITLE": "Группировать по дате",
+            "COLUMNS": {
+            "COLUMN1": "Валюта"
+            },
+            "ROWS": {
+                "ROW1": "Контрагент",
+                "ROW2": "Документ"
+            },
+            "DATAS": {
+                "DATA1": "Дата",
+                "DATA2": "Сумма"
+            }
+        }
+    }
+}

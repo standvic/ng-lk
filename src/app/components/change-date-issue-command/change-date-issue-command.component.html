@@ -1,0 +1,52 @@
+
+<dx-load-panel 
+    [(visible)]="loadingPanelVisible"
+    [position]="{ of: '#pop' }">
+</dx-load-panel>
+
+<dx-popup
+    id="pop"
+    class="popup"
+    width="800"
+    height="250"
+    [showTitle]="true"
+    [title]="'POPUP_HEADERS.CHANGE_COMPLETION_DATE' | translate"
+    [dragEnabled]="true"
+    [closeOnOutsideClick]="true"
+    [(visible)]="popupVisible"
+>
+    <div *dxTemplate="let data of 'content'">
+        <dx-date-box
+            [(value)]="date"
+            type="date"
+            [disabledDates]="disDates">
+            <!--<dx-validator>
+                <dxi-validation-rule type="range" [min]="minDate" message="Недопустимая дата!"></dxi-validation-rule>
+            </dx-validator>-->
+        </dx-date-box><br/>
+        <dx-text-box (onValueChanged)="commentValueChanged($event)" [placeholder]="'PAYMENT_REQUEST_INFO_PAGE.POPUP_OPTIONS.PLACEHOLDER' | translate"></dx-text-box>
+        <br/>
+        <dx-button
+            [text]="'TASK_COMMANDS.CANCEL' | translate"
+            type="normal"
+            icon=""
+            style="float: right; margin-left: 20px"
+            (onClick)="cancelFunc($event)">
+        </dx-button>&nbsp;
+        <dx-button
+            [text]="'TASK_COMMANDS.OK' | translate"
+            type="default"
+            icon=""
+            style="float: right"
+            (onClick)="okFunc($event)">
+        </dx-button>
+    </div>
+</dx-popup>
+
+<dx-button
+    [text]="'TASK_COMMANDS.CHANGE_COMPLETION_DATE' | translate"
+    type="default"
+    icon="clock"
+    (onClick)="changeDateButton($event)"
+    [(visible)]="changeDateVisible">
+</dx-button>&nbsp;

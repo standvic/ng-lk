@@ -1,0 +1,67 @@
+<app-caption>{{"PURCHASE_DELIVERY_DEBTS_TURNOVER_PAGE.CAPTION" | translate}}</app-caption>
+
+<dx-chart #myChart style="height: 400px;margin-bottom: 50px;"
+        [dataSource]="chartDataSource"
+        [series]="chartSeries"
+        palette="Harmony Light"
+        [valueAxis]="chartValueAxis"
+        [tooltip]="chartTooltip"
+        >
+        <dxo-argument-axis>
+            <dxo-label format="monthAndDay"></dxo-label>
+        </dxo-argument-axis>
+        <dxo-common-series-settings argumentField="TransactionDate"></dxo-common-series-settings>
+        <dxo-title horizontalAlignment="left">
+            <dxo-font size="14"></dxo-font>
+        </dxo-title>
+        <dxo-legend [visible]="false"></dxo-legend>
+        <dxo-loading-indicator show="true" text="{{'LOADING_INDICATOR' | translate}}"></dxo-loading-indicator>
+    </dx-chart>
+
+<div class="dx-field">
+        <div class="dx-field-label">{{"PURCHASE_DELIVERY_DEBTS_TURNOVER_PAGE.DATEBOX_CAPTION" | translate}}</div>
+        <div class="dx-field-value">
+           <dx-date-box
+                [value]="dateBoxDate"
+                (onValueChanged)="onDateChange($event)"
+                type="date">
+            </dx-date-box>
+        </div>
+</div>
+
+<div class="dx-field">
+    <div class="dx-field-label">
+        <dx-check-box
+                    [value]="true"
+                    text="{{'PURCHASE_DELIVERY_DEBTS_TURNOVER_PAGE.CHECKBOX_CAPTION' | translate}}"
+                    (onValueChanged)="onCheckedChanged($event)"
+                ></dx-check-box>
+    </div>
+</div>
+
+<dx-data-grid #myDataGrid
+    allowSortingBySummary="true"
+    allowSorting="false"
+    allowFiltering="false"        
+    allowExpandAll="true"        
+    noDataText="---"
+    [hoverStateEnabled]="true"
+    [showBorders]="true"
+    [dataSource]="gridSource"
+    [columns]="gridColumns"
+    >
+    <dxo-selection [mode]="'single'"></dxo-selection>
+    <dxo-field-chooser [enabled]="false"></dxo-field-chooser>
+    <dxo-export [enabled]="true" fileName="{{'PURCHASE_DELIVERY_DEBTS_TURNOVER_PAGE.FILE_NAME' | translate}}"></dxo-export>
+    <dxo-header-filter [visible]="true"></dxo-header-filter>
+    <dxo-filter-row [visible]="true"></dxo-filter-row>
+    <dxo-field-panel
+        [showFilterFields]="false"
+                [allowFieldDragging]="true"
+                [showDataFields]="false"
+                [showColumnFields]="false"
+                [showRowFields]="true"
+                [visible]="true"
+        ></dxo-field-panel>
+    <dxo-load-panel height="150" width="400" text="{{'LOADING_INDICATOR' | translate}}" ></dxo-load-panel>
+</dx-data-grid>

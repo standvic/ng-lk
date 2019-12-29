@@ -1,0 +1,33 @@
+<dx-circular-gauge     
+    #PayableGauge
+    value="0"
+>
+    <dxo-scale
+        startValue="0"
+        endValue="100"
+        tickInterval="10"
+    >
+        <dxo-label [customizeText]="customizeText">
+        </dxo-label>
+    </dxo-scale> 
+    <dxo-range-container
+        [ranges]="[
+                    { startValue: 0, endValue: 25, color: '#228B22' },
+                    { startValue: 25, endValue: 50, color: '#FFD700' },
+                    { startValue: 50, endValue: 100, color: '#CE2029' }
+                ]"
+    >
+    </dxo-range-container>
+    <dxo-export [enabled]="false">
+    </dxo-export>
+    <dxo-loading-indicator 
+        show="true"
+        text="Загрузка данных"
+    >
+    </dxo-loading-indicator>
+    <dxo-tooltip
+        enabled="true"
+        [customizeTooltip]="customizeTooltip"
+    >
+    </dxo-tooltip>
+</dx-circular-gauge>    

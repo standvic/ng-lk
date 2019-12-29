@@ -1,0 +1,28 @@
+<app-caption>{{"NET_PROFIT_PAGE.CAPTION" | translate}}</app-caption>
+
+<div style="width: 100%; display: inline-block;">
+    <div style="float:left;">
+        <app-arrow-button width="25" height="50" [isLeft]="true" (buttonClick)="leftArrowClick()"></app-arrow-button>
+    </div>
+    <div style="float:left;">
+        <app-range-selector #dateRangeSelector [rangeDataSource]="rangeDataSource" [series]="series" (rangeChanged)="onRangeChanged($event)"></app-range-selector>
+    </div>
+    <div style="float:left;">
+        <app-arrow-button width="25" height="50" [isLeft]="false" [isDisabled]="nextBtnDisabled" (buttonClick)="rightArrowClick()"></app-arrow-button>
+    </div>
+</div>
+
+<dx-data-grid #myDataGrid
+    [showColumnLines]="false"
+    [showBorders]="false"
+    [dataSource]="gridSource"
+    [columns]="gridColumns"
+    [customizeColumns]="customizeGridColumns"
+    (onRowPrepared)="onGridRowPrepared($event)"
+    >
+    <dxo-sorting [mode]="'none'"></dxo-sorting>
+    <dxo-grouping [autoExpandAll]="true" [allowCollapsing]="false"></dxo-grouping>
+    <dxo-paging [enabled]="false"></dxo-paging>
+    <dxo-summary [totalItems]="[{}]"></dxo-summary>
+    <dxo-load-panel height="150" width="400" text="{{'LOADING_INDICATOR' | translate}}" ></dxo-load-panel>
+</dx-data-grid>

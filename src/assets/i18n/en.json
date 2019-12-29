@@ -1,0 +1,25 @@
+
+{
+  "LANG": {
+    "TITLE": "English",
+    "SELECT": "Change language"
+  },
+  "MAIN_PAGE": {
+        "CASH_FLOW":{
+            "CAPTION": "ДЕНЕЖНЫЙ ПОТОК",
+            "GRID": {
+                "NAME_COLUMN":"BALANCES OF CASH, THOUSAND.",
+                "RUB_COLUMN":"RUB",
+                "USD_COLUMN":"USD",
+                "EUR_COLUMN":"EUR",
+                "CURRENCY_BALANCE_COLUMN": "В валюте баланса"
+            }
+        },
+        "FINANCIAL_CYCLE": {
+            "CAPTION": "ФИНАНСОВЫЙ ЦИКЛ"
+        },
+        "BALANCE": {
+            "CAPTION": "БАЛАНС"
+        }
+    }
+}

@@ -1,0 +1,13 @@
+<dx-list 
+    #moneyList
+    height="100%"
+    [dataSource]="links"
+    [grouped]="true"
+    [collapsibleGroups]="true"
+    [activeStateEnabled]="false"
+    [focusStateEnabled]="false"
+    [hoverStateEnabled]="false"
+    [groupTemplate]="groupTemplate" 
+    [itemTemplate]="itemTemplate"
+    (load)="collapseGroup(0)">
+</dx-list> <br/> <br/>

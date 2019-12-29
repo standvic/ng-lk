@@ -1,0 +1,182 @@
+<p>
+  {{company}} 
+  {{'ACCOUNT_RECEIVABLE_TURNOVER_REPORT_PAGE.POPUP_WINDOW.INFO_HEADER_PART1' | translate}}
+  {{agent}}
+  {{'ACCOUNT_RECEIVABLE_TURNOVER_REPORT_PAGE.POPUP_WINDOW.INFO_HEADER_PART2' | translate}}
+  {{delay}}
+  {{'ACCOUNT_RECEIVABLE_TURNOVER_REPORT_PAGE.POPUP_WINDOW.INFO_HEADER_PART3' | translate}}
+</p>
+
+<dx-chart
+    #linechart
+    [dataSource]="dataSourceLineChart"
+    palette="Soft"
+    [valueAxis]="valueAxisLine"
+    [series]="[{
+        name: 'Нормальная задолженность',
+        axis: 'debt',
+        argumentField: 'date',
+        valueField: 'debt',
+        color: '#90ee90',
+        opacity: 0.75
+        },{
+        name: 'Просроченная задолженность',
+        axis: 'debt',
+        argumentField: 'date',
+        valueField: 'overDebt',
+        color: '#ffd700',
+        opacity: 0.75
+        },{
+        name: 'Проблемная задолженность',
+        axis: 'debt',
+        argumentField: 'date',
+        valueField: 'overDebt30',
+        color: '#ff6347',
+        opacity: 0.75
+    }]"
+>
+    <dxo-size  [height]="heightL"></dxo-size>
+    <dxo-title [text]="lineChartTitle" horizontalAlignment="left">
+        <dxo-font size="14"></dxo-font>
+    </dxo-title>
+    <dxo-common-series-settings argumentField="date" type="stackedarea">
+        <dxo-label [visible]="false"></dxo-label>
+        <dxo-point [visible]="false"></dxo-point>
+    </dxo-common-series-settings> 
+    <dxo-legend [visible]="false"></dxo-legend>
+    <dxo-argument-axis [argumentType]="date">
+        <dxo-label format="monthAndDay"></dxo-label>
+        <dxo-grid [visible]="false"></dxo-grid>
+    </dxo-argument-axis>
+    <dxo-loading-indicator 
+        [show]="true"
+        [text]="'LOADING_INDICATOR' | translate">
+    </dxo-loading-indicator>
+    <dxo-tooltip 
+        [enabled]="true"
+        [shared]="true"
+        location="center"
+        [customizeTooltip]="customizeTooltipLine"
+        container="#charts"
+        zIndex="100000"
+    >
+        <dxo-format type="currency" precision="2"></dxo-format>
+    </dxo-tooltip>
+</dx-chart>
+
+<dx-chart
+    #barchart
+    [dataSource]="dataSourceBarChart"
+    palette="Soft"
+    [valueAxis]="valueAxisBar"
+    [series]="[{
+        name: 'Отгрузки',
+        axis: 'Sale',
+        argumentField: 'date',
+        valueField: 'sale',
+        tag: 'sale',
+        color: '#90ee90'
+    }, {
+        name: 'Возвраты товара',
+        axis: 'Sale',
+        argumentField: 'date',
+        valueField: 'saleRet',
+        tag: 'saleRet',
+        color: '#ff6347'
+    }, {
+        name: 'Оплаты',
+        axis: 'Sale',
+        argumentField: 'date',
+        valueField: 'payment',
+        tag: 'payment',
+        color: '#90ee90'
+    }, {
+        name: 'Возвраты денег',
+        axis: 'Sale',
+        argumentField: 'date',
+        valueField: 'paymentRet',
+        tag: 'paymentRet',
+        color: '#ff6347'
+    }, {
+        name: 'Прочее',
+        axis: 'Sale',
+        argumentField: 'date',
+        valueField: 'other',
+        tag: 'other',
+        color: '#ffd700'
+    }]"
+>
+    <dxo-size  [height]="heightB"></dxo-size>
+    <dxo-title [text]="barChartTitle" horizontalAlignment="left">
+        <dxo-font size="14"></dxo-font>
+    </dxo-title>
+    <dxo-common-series-settings argumentField="date" type="stackedbar" tagField="tag">
+        <dxo-label [visible]="false"></dxo-label>
+    </dxo-common-series-settings>
+    <dxo-legend [visible]="false"></dxo-legend>
+    <dxo-loading-indicator 
+        [show]="true"
+        [text]="'LOADING_INDICATOR' | translate">
+    </dxo-loading-indicator>
+    <dxo-argument-axis 
+        [argumentType]="date"
+        [min]="min"
+        [max]="max"
+    >
+        <dxo-label format="monthAndDay"></dxo-label>
+        <dxo-grid [visible]="false"></dxo-grid>
+    </dxo-argument-axis>
+    <dxo-tooltip 
+        [enabled]="true"
+        [shared]="true"
+        location="center"
+        [customizeTooltip]="customizeTooltipBar"
+        container="#charts"
+        zIndex="100000"
+    >
+        <dxo-format type="currency" precision="2"></dxo-format>
+    </dxo-tooltip>
+</dx-chart>
+
+<dx-range-selector
+    [dataSource]="selectorScale"
+    minorTickInterval="day"
+    (onValueChanged)="onValueChanged($event)"
+>
+    <dxo-size [height]="heightR"
+               [width]="widthR">
+    </dxo-size>
+    <dxo-margin [left]="margin">
+    </dxo-margin>    
+    <dxo-chart 
+        palette="Harmony Light"
+        [series]="{
+            argumentField: 'date',
+            valueField: 'data',
+            type: 'area',
+            color: '#fac29a'
+         }"
+       >
+    </dxo-chart>
+    <dxo-behavior [callValueChanged]="'onMoving'">
+    </dxo-behavior>
+    <dxo-loading-indicator 
+        [show]="true"
+        [text]="'LOADING_INDICATOR' | translate">
+    </dxo-loading-indicator>
+    <dxo-slider-marker format="shortDate" color="#606060">
+    </dxo-slider-marker>
+    <dxo-scale
+        [startValue]="startSelected"
+        [endValue]="endSelected"
+        valueType="datetime"
+        tickInterval="day"
+        minorTickInterval="day"
+    >
+        <dxo-label [visible]="false"></dxo-label>
+        <dxo-marker>
+            <dxo-label format="MonthAndYear" [customizeText]="customizeText">
+            </dxo-label>
+        </dxo-marker>
+    </dxo-scale>
+</dx-range-selector>

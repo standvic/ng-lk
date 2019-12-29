@@ -1,0 +1,49 @@
+<dx-chart 
+    style="height: 200px;"
+    id="averageMoneyBalance"
+    [dataSource]="dataAverageMoneyBalanceSource"
+    palette="Soft"
+    [customizeLabel]="customizeLabel"
+    [valueAxis]="[{
+          name: 'amount',
+          position:'left',
+          visible: true,
+          label: {
+              customizeText: customizeText
+          },
+          format: 'decimal'
+      }]">
+    <dxo-title 
+        text="СРЕДНИЙ ОСТАТОК ДЕНЕЖНЫХ СРЕДСТВ, РУБ"
+        horizontalAlignment="left">
+        <dxo-font size="14"></dxo-font>
+    </dxo-title>
+    <dxo-common-series-settings 
+        argumentField="argName"
+        type="bar">
+        <dxo-label [visible]="false"></dxo-label>
+    </dxo-common-series-settings>
+    <dxo-legend [visible]="false"></dxo-legend>
+    <dxo-loading-indicator 
+        show="true"
+        text="Загрузка данных...">
+    </dxo-loading-indicator>
+    <dxo-argument-axis argumentType="string">
+        <dxo-label type="month"></dxo-label>
+        <dxo-grid [visible]="false"></dxo-grid>
+    </dxo-argument-axis>
+    <dxo-tooltip [enabled]="true"
+                 [customizeTooltip]="averageMoneyBalanceCustomizeTooltip">
+        <dxo-format type="currency"
+                    precision="2">
+        </dxo-format>
+    </dxo-tooltip>
+    <dxi-series
+        name="ОСТАТКИ ДС"
+        axis="amount"
+        argumentField="argName"
+        valueField="Amount"
+        color="#6babac">
+        <dxo-point visible="true"></dxo-point>
+    </dxi-series>
+</dx-chart>

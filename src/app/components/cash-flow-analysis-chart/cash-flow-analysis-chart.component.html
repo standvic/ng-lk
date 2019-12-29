@@ -1,0 +1,74 @@
+<dx-chart 
+    style="height: 300px;"
+    id="cashFlowAnalysis"
+    [dataSource]="dataCashFlowAnalysisSource"
+    palette="Soft"
+    [valueAxis]="[{
+          name: 'amount',
+          position:'left',
+          visible: true,
+          label: {
+              customizeText: customizeText
+          },
+          format: 'decimal'
+      }]">
+    <dxo-title 
+        text="СТРУКТУРА ДЕНЕЖНОГО ПОТОКА"
+        horizontalAlignment="left">
+        <dxo-font size="14"></dxo-font>
+    </dxo-title>
+    <dxo-common-series-settings 
+        argumentField="date"
+        type="bar">
+        <dxo-label [visible]="false"></dxo-label>
+    </dxo-common-series-settings> 
+    <dxo-legend 
+        [visible]="true"
+        verticalAlignment="bottom"
+        horizontalAlignment="center"
+    ></dxo-legend>
+    <dxo-loading-indicator 
+        show="true"
+        text="Загрузка данных...">
+    </dxo-loading-indicator>  
+    <dxo-argument-axis argumentType="date"
+                       tickInterval="month">
+        <dxo-label format="monthAndYear"></dxo-label>
+        <dxo-grid [visible]="false"></dxo-grid>
+    </dxo-argument-axis>
+    <dxo-tooltip [enabled]="true"
+                 [customizeTooltip]="cashFlowAnalysisCustomizeTooltip">
+        <dxo-format type="currency"
+                    precision="2">
+        </dxo-format>
+    </dxo-tooltip>
+    <dxi-series
+        name="Поток по опер. деятельности"
+        axis="amount"
+        argumentField="date"
+        valueField="Oper"
+        color="#565077">
+    </dxi-series>
+    <dxi-series
+        name="Поток по фин. деятельности"
+        axis="amount"
+        argumentField="date"
+        valueField="Fin"
+        color="#9ab576">
+    </dxi-series>
+    <dxi-series
+        name="Поток по инвест. деятельности"
+        axis="amount"
+        argumentField="date"
+        valueField="Invest"
+        color="#e55253">
+    </dxi-series>
+    <dxi-series
+        name="Суммарный поток"
+        type="line"
+        axis="amount"
+        argumentField="date"
+        valueField="Sum"
+        color="goldenrod">
+    </dxi-series>
+</dx-chart><br/><br/>

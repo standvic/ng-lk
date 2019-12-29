@@ -1,0 +1,22 @@
+/deep/ * {
+    font-family: "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif;
+}
+
+/deep/ @media all and (min-width: 1028px) {
+	.content {
+		min-width: 900px;
+		max-width: 1270px;    
+		padding-top: 20px;
+		margin: 0 auto;
+	}
+}
+
+/deep/ * {
+    font-family: "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif;
+}
+
+.dx-field { display: inline-block; width:100%}
+
+.dx-field-label {width: auto!important;}
+
+.dx-field-value { max-width: 145px; float: left}

@@ -1,0 +1,14 @@
+::ng-deep * {
+    font-family: "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif;
+}
+
+::ng-deep { 
+    @media all and (min-width: 1028px) {
+	.content {
+		min-width: 900px;
+		max-width: 1270px;    
+		padding-top: 20px;
+		margin: 0 auto;
+	}
+    }
+}

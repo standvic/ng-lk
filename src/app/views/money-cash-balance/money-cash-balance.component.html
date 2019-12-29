@@ -1,0 +1,89 @@
+<app-caption>{{"MONEY_CASH_BALANCE_PAGE.CAPTION" | translate}}</app-caption>
+
+<div style="width: 100%; display: inline-block;">
+    <div style="float:left;">
+        <app-arrow-button width="25" height="50" [isLeft]="true" (buttonClick)="leftArrowClick()"></app-arrow-button>
+    </div>
+    <div style="float:left;">
+        <app-range-selector #dateRangeSelector 
+            [rangeDataSource]="rangeDataSource" 
+            [series]="series" 
+            [scaleStartValue]="startScale"
+            [scaleEndValue]="endScale"
+            (rangeChanged)="onRangeChanged($event)"></app-range-selector>
+    </div>
+    <div style="float:left;">
+        <app-arrow-button width="25" height="50" [isLeft]="false" [isDisabled]="nextBtnDisabled" (buttonClick)="rightArrowClick()"></app-arrow-button>
+    </div>
+</div>
+
+<dx-tree-list style="margin-bottom: 38px"
+    [dataSource]="treeListStore"
+    keyExpr="Id"
+    parentIdExpr="HeadId"
+    showRowLines="true"
+    columnAutoWidth="true"
+    [columns]="treeListColumns">
+    <dxo-selection mode="single"></dxo-selection>
+</dx-tree-list>
+
+<dx-check-box #checkBox style="margin-bottom: 15px"
+    [value]="false"
+    (onValueChanged)="onCheckBoxValueChanged()"
+    text='{{"MONEY_CASH_BALANCE_PAGE.PIVOT_GRID.DATE_CHECKBOX_TITLE" | translate}}'
+    >  
+</dx-check-box>
+
+<dx-pivot-grid #pivotGrid
+        [showRowTotals]="false"
+        [showColumnTotals]="false"
+        [showColumnGrandTotals]="false"
+        [allowSortingBySummary]="true"
+        [allowExpandAll]="true"
+        [allowFiltering]="true"
+        [showBorders]="true"
+        (onCellClick)="cellClick($event)"
+        (onContextMenuPreparing)= "contextMenuPreparing($event)"
+    >
+        <dxo-data-source
+            [fields]="fields"
+            [store]="myStore"
+        ></dxo-data-source>
+        <dxo-field-chooser [enabled]="true"></dxo-field-chooser>
+        <dxo-load-panel
+            height="150"
+            width="400"
+            text="{{'LOADING_INDICATOR' | translate}}"
+        >
+        </dxo-load-panel>
+        <dxo-field-panel
+            [showFilterFields]="false"
+            showFilterChooser="false"
+            [allowFieldDragging]="true"
+            [showDataFields]="false"
+            [showColumnFields]="false"
+            [showRowFields]="true"
+            [visible]="true"
+        >
+        </dxo-field-panel>
+        <dxo-export enabled="true" fileName="{{'MONEY_CASH_BALANCE_PAGE.FILE_NAME' | translate}}"></dxo-export>
+</dx-pivot-grid>
+
+
+<dx-popup #myPopup
+        width="80%"
+        height="80%"
+        [showTitle]="true"
+        title='{{"MONEY_CASH_BALANCE_PAGE.POPUP_WINDOW.TITLE" | translate}}'
+        [dragEnabled]="true"
+        [visible]="false"
+        [closeOnOutsideClick]="false">
+        <div *dxTemplate="let t = data of 'content'">
+            <dx-data-grid #myDataGrid
+                [dataSource]="popupGridSource"
+                [columns]="dataGridColumns">
+                <dxo-paging [enabled]="true" [pageSize]="15"></dxo-paging>
+                <dxo-load-panel height="150" width="400" text="{{'LOADING_INDICATOR' | translate}}" ></dxo-load-panel>
+            </dx-data-grid>
+        </div>
+</dx-popup>

@@ -1,0 +1,700 @@
+{
+    "LOADING_INDICATOR": "Загрузка данных...",
+    "DATE_BUTTONS": {
+        "CURRENT_YEAR_BUTTON": "Текущий год",
+        "CURRENT_QUART_BUTTON": "Текущий квартал",
+        "CURRENT_MONTH_BUTTON": "Текущий месяц"
+    },
+    "OTHER_GROUP": "Прочие",
+    "LANG": {
+        "TITLE": "Русский",
+        "SELECT": "Выберите язык"
+    },
+    "TASK_COMMANDS": {
+        "REWORK": "На доработку",
+        "SEND_NOTIFICATION": "Отправить уведомление",
+        "CHANGE_COMPLETION_DATE": "Изменить дату выполнения",
+        "APPROVE_COMPLETION_DATE": "Утвердить новую дату выполнения",
+        "NOT_RELEVANT": "Неактуальна",
+        "COMPLETED": "Выполнена",
+        "IN_PROGRESS": "Вернуть в работу",
+        "COORDINATION": "Согласование",
+        "OK": "OK",
+        "CANCEL": "ОТМЕНИТЬ"
+    },
+    "POPUP_HEADERS": {
+        "INDICATE_REASON": "Укажите причину",
+        "SEND_NOTIFICATION": "Отправить уведомление",
+        "CHOOSE_EMPLOYEES": "Выберите сотрудников",
+        "CHANGE_COMPLETION_DATE": "Изменить дату выполнения",
+        "APPROVE_COMPLETION_DATE": "Утвердить новую дату выполнения"
+    },
+    "NOTIFIES": {
+        "COMMENTS_REQUIRED": "Комментарий обязателен!",
+        "REWORK_ISSUE": "Задача отправлена на доработку!",
+        "COORDINATION_ISSUE": "Задача отправлена на согласование!",
+        "SEND_NOTIFICATION": "Уведомление отправлено!",
+        "CHANGE_COMPLETION_DATE": "Дата выполнения изменена!",
+        "NOT_RELEVANT": "Задача неактуальна!",
+        "COMPLETED": "Задача выполнена!",
+        "IN_PROGRESS": "Задача в работе!",
+        "WRONG_DATE": "Недопустимая дата!"
+    },
+    "MAIN_PAGE": {
+        "CASH_FLOW": {
+            "CAPTION": "ДЕНЕЖНЫЙ ПОТОК",
+            "GRID": {
+                "NAME_COLUMN": "ОСТАТКИ ДЕНЕЖНЫХ СРЕДСТВ",
+                "RUB_COLUMN": "RUB",
+                "USD_COLUMN": "USD",
+                "EUR_COLUMN": "EUR",
+                "CURRENCY_BALANCE_COLUMN": "В валюте баланса"
+            },
+            "AVERAGE_MONEY_CHART": {
+                "CAPTION": "СРЕДНИЙ ОСТАТОК ДЕНЕЖНЫХ СРЕДСТВ, РУБ",
+                "SERIES_NAME": "ОСТАТКИ ДС"
+            },    
+            "CASH_FLOW_ANALISYS_CHART": {
+                "CAPTION": "СТРУКТУРА ДЕНЕЖНОГО ПОТОКА",
+                "SERIES_NAME1": "Поток по опер. деятельности",
+                "SERIES_NAME2": "Поток по фин. деятельности",
+                "SERIES_NAME3": "Поток по инвест. деятельности",
+                "SERIES_NAME4": "Суммарный поток"
+            },
+            "AVERAGE_OPER_CASH_FLOW_TREELIST": {
+                "COLUMN1": "СРЕДНЕМЕСЯЧНЫЙ ОПЕРАЦИОННЫЙ ДЕНЕЖНЫЙ ПОТОК, ТЫС.",
+                "COLUMN2": "RUB",
+                "LAST_ROW": "Возможны внеплановые платежи по погашению проблемной кредиторской задолженности"
+            },
+            "REFERENCE_LIST": {
+                "CAPTION": "Подробнее о денежном потоке...",
+                "TITLE1": "Отчёт о движении денежных средств",
+                "TITLE2": "Просроченная дебиторская задолженность",
+                "TITLE3": "Просроченная кредиторская  задолженность",
+                "TITLE4": "Покупатели с плохой платёжной дисциплиной",
+                "TITLE5": "Возвраты денежных средств покупателям"
+            }
+        },
+        "FINANCIAL_CYCLE": {
+            "CAPTION": "ФИНАНСОВЫЙ ЦИКЛ",
+            "CHART": {
+                "VALUE_AXIS_CAPTION": "ИНТЕРВАЛ, ДНИ",
+                "SERIES_NAME1": "ЭТАП ФИН. ЦИКЛА",
+                "SERIES_NAME2": "ФИН. ЦИКЛ",
+                "CONSTANT_LINE": "Финансовый цикл ",
+                "MEASURE_UNIUS": " дней"
+            },
+            "REFERENCE_LIST": {
+                "CAPTION": "Подробнее о финансовом цикле...",
+                "TITLE1": "Сроки оплат покупателей",
+                "TITLE2": "Сроки поставки поставщиков",
+                "TITLE3": "Сроки реализации складских запасов",
+                "TITLE4": "Сроки оплаты поставщикам"
+            }
+        },
+        "RPOFIT": {
+            "CAPTION": "ПРИБЫЛЬ",
+            "GROSS_PROFIT_CHART": {
+                "CAPTION": "ВЫРУЧКА И ВАЛОВАЯ ПРИБЫЛЬ",
+                "VALUE_AXIS_LEFT_CAPTION": "ВАЛОВАЯ ПРИБЫЛЬ, ВЫРУЧКА, РУБ",
+                "VALUE_AXIS_RIGHT_CAPTION": "Наценка, %",
+                "TOOLTIP1": "ВЫРУЧКА",
+                "TOOLTIP2": "НАЦЕНКА",
+                "TOOLTIP3": "ВАЛОВАЯ ПРИБЫЛЬ",
+                "SERIES_NAME1": "ВЫРУЧКА, РУБ",
+                "SERIES_NAME2": "ВАЛОВАЯ ПРИБЫЛЬ, РУБ",
+                "SERIES_NAME3": "НАЦЕНКА, %"
+            },
+            "GROUPED_PROFIT_CHART": {
+                "CAPTION": "ОПЕРАЦИОННАЯ И ЧИСТАЯ ПРИБЫЛЬ",
+                "VALUE_AXIS_LEFT_CAPTION": "ПРИБЫЛЬ",
+                "VALUE_AXIS_RIGHT_CAPTION": "Рентабельность продаж, %",
+                "SERIES_NAME1": "Операционная прибыль",
+                "SERIES_NAME2": "Чистая прибыль",
+                "SERIES_NAME3": "Рентабельность продаж по чистой прибыли"
+            },
+            "REFERENCE_LIST": {
+                "CAPTION": "Подробнее о прибыли...",
+                "TITLE1": "Отчет о продажах",
+                "TITLE2": "Затраты",
+                "TITLE3": "Чистая прибыль"
+            }
+        },
+        "BALANCE": {
+            "CAPTION": "БАЛАНС",
+            "ACTIVE_TREE_MAP": {
+                "CAPTION_PART1": "ВСЕГО АКТИВОВ:   ",
+                "CAPTION_PART2": " РУБ НА ",
+                "MARKED_ARTICLE1": "Неликвидные товары",
+                "MARKED_ARTICLE2": "Проблемная дебиторская задолженность",
+                "MARKED_ARTICLE3": "Претензионные товары"
+            },
+            "PASSIVE_TREE_MAP": {
+                "CAPTION_PART1": "ВСЕГО ПАССИВОВ:   ",
+                "CAPTION_PART2": " РУБ НА ",
+                "MARKED_ARTICLE1": "Проблемная кредиторская задолженность",
+                "MARKED_ARTICLE2": "Нераспределенные убытки"
+            },
+            "RECIEVABLE_GAUGE": {
+                "CAPTION_LINE1": "ПРОСРОЧЕННАЯ ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ",
+                "CAPTION_LINE2": "(процент от общей дебиторской задолженности)",
+                "TOOLTIP1": "Просроченная задолженность",
+                "TOOLTIP2": "Общая задолженность"
+            },
+            "PAYABLE_GAUGE": {
+                "CAPTION_LINE1_1": "ПРОБЛЕМНАЯ",
+                "CAPTION_LINE1_2": "ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ",
+                "CAPTION_LINE2": "(процент от просроченной дебиторской задолженности)",
+                "POPOVER": "Проблемной признается просроченная задолженность сроком более 30 дней",
+                "TOOLTIP1": "Проблемная задолженность",
+                "TOOLTIP2": "Просроченная задолженность"
+            },
+            "RECEIVABLE_MONEY_GRID": {
+                "NAME_COLUMN": "ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ, ТЫС.",
+                "RUB_COLUMN": "RUB",
+                "USD_COLUMN": "USD",
+                "EUR_COLUMN": "EUR",
+                "CURRENCY_BALANCE_COLUMN": "В валюте баланса"
+            },
+            "PAYABLE_MONEY_GRID": {
+                "NAME_COLUMN": "КРЕДИТОРСКАЯ ЗАДОЛЖЕННОСТЬ, ТЫС.",
+                "RUB_COLUMN": "RUB",
+                "USD_COLUMN": "USD",
+                "EUR_COLUMN": "EUR",
+                "CURRENCY_BALANCE_COLUMN": "В валюте баланса"
+            }
+        }
+    },
+    "MONEY_ACCOUNT_RECEIVABLE_PAYABLE_PAGE":{
+        "CAPTION": "ДИНАМИКА ДЕБИТОРСКОЙ ЗАДОЛЖЕННОСТИ",
+        "CHART1_CAPTION": "ПО КОНТРАКТАМ В ВАЛЮТЕ РУБ",
+        "CHART2_CAPTION": "ПО КОНТРАКТАМ В ВАЛЮТЕ USD",
+        "CHART3_CAPTION": "ПО КОНТРАКТАМ В ВАЛЮТЕ EUR",
+        "LEGEND_LINE1": "ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ",
+        "LEGEND_LINE2": "ПРОСРОЧЕННАЯ ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ",
+        "LEGEND_LINE3": "ПРОБЛЕМНАЯ ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ"
+    },
+    "MONEY_ACCOUNT_RECEIVABLE_PAGE":{
+        "CAPTION": "ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ",
+        "DATE_BOX_CAPTION": "ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ НА ДАТУ:"
+    },
+    "MONEY_TURNOVER_PAGE":{
+        "CAPTION": "ОБОРОТЫ ДЕНЕЖНЫХ СРЕДСТВ ПО КОМПАНИЯМ/БАНКАМ"
+    },
+    "MONEY_ACCOUNT_PAYABLE_PAGE":{
+        "CAPTION": "КРЕДИТОРСКАЯ ЗАДОЛЖЕННОСТЬ",
+         "DATE_BOX_CAPTION": "КРЕДИТОРСКАЯ ЗАДОЛЖЕННОСТЬ НА ДАТУ:"
+    },
+    "MONEY_OUTDATED_ACCOUNT_RECEIVABLE_PAGE":{
+        "CAPTION": "ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ СО СРОКАМИ ДАВНОСТИ"
+    },
+    "MONEY_OUTDATED_ACCOUNT_PAYABLE_PAGE":{
+        "CAPTION": "КРЕДИТОРСКАЯ ЗАДОЛЖЕННОСТЬ СО СРОКАМИ ДАВНОСТИ"
+    },
+    "MONEY_ACCOUNT_RECEIVABLE_WITH_OVERDURE_PAGE":{
+        "CAPTION": "ПРОСРОЧЕННАЯ ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ"
+    },
+    "MONEY_ACCOUNT_PAYABLE_WITH_OVERDURE_PAGE":{
+        "CAPTION": "ПРОСРОЧЕННАЯ КРЕДИТОРСКАЯ ЗАДОЛЖЕННОСТЬ"
+    },
+    "MONEY_DYNAMIC_BALANCE_PAGE": {
+        "CAPTION": "ДИНАМИКА ОСТАТКА НА Р/С",
+        "CHART_CAPTION": "ДИНАМИКА СУММАРНОГО ОСТАТКА, РУБ"
+    },
+    "MONEY_BALANCE_PAGE": {
+        "CAPTION": "ОСТАТКИ ДЕНЕЖНЫХ СРЕДСТВ НА РАСЧЁТНЫХ СЧЕТАХ",
+        "DATEBOX_CAPTION": "ОСТАТКИ НА ДАТУ:",
+        "PIVOT_GRID": {
+            "COLUMNS": {
+                "COLUMN1": "Валюта"
+            },
+            "ROWS": {
+                "ROW1": "Компания",
+                "ROW2": "Банк"
+            },
+            "DATAS": {
+                "DATA1": "Остатки"
+            }
+        }
+    },
+    "MONEY_TURNOVER_PAGE": {
+        "CAPTION": "ОБОРОТЫ ДЕНЕЖНЫХ СРЕДСТВ ПО КОМПАНИЯМ/БАНКАМ",
+        "LEFT_GAUGE_TITLE": "ПО БАНКАМ",
+        "RIGHT_GAUGE_TITLE": "ПО СТАТЬЯМ ДДС",
+        "PIVOT_GRID": {
+            "COLUMNS": {
+                "COLUMN1": "Дата"
+            },
+            "ROWS": {
+                "ROW1": "Компания",
+                "ROW2": "Статья затрат",
+                "ROW3": "Банк"
+            },
+            "DATAS": {
+                "DATA1": "Поступления",
+                "DATA2": "Выбытия"
+            }
+        }
+    },
+    "MONEY_AGENT_TURNOVER_PAGE": {
+        "CAPTION": "ОБОРОТЫ ДЕНЕЖНЫХ СРЕДСТВ ПО КОНТРАГЕНТАМ",
+        "LEFT_GAUGE_TITLE": "ВЫБЫТИЯ",
+        "RIGHT_GAUGE_TITLE": "ПОСТУПЛЕНИЯ",
+        "PIVOT_GRID": {
+            "ROWS": {
+                "ROW1": "Тип контрагента",
+                "ROW2": "Контрагент",
+                "ROW3": "Статья затрат",
+                "ROW4": "Компания",
+                "ROW5": "Банк"
+            },
+            "DATAS": {
+                "DATA1": "Поступления",
+                "DATA2": "Выбытия"
+            }
+        }
+    },
+    "MONEY_CHECKOUT_TURNOVER_PAGE": {
+        "CAPTION": "ОБОРОТЫ ПО КАССЕ",
+        "PIVOT_GRID": {
+            "ROWS": {
+                "ROW1": "Группа",
+                "ROW2": "Контрагент"
+            },
+            "DATAS": {
+                "DATA1": "Поступления",
+                "DATA2": "Выбытия"
+            }
+        }
+    },
+    "MONEY_CASH_BALANCE_PAGE": {
+        "CAPTION": "ОТЧЕТ ПО ДВИЖЕНИЮ ДЕНЕЖНЫХ СРЕДСТВ",
+        "TREE_LIST_COLUMNS": {
+            "COLUMN1": "Валюта",
+            "COLUMN2": "Вх. остаток",
+            "COLUMN3": "Поступления",
+            "COLUMN4": "Выбытия",
+            "COLUMN5": "Исх. остаток"
+        },
+        "PIVOT_GRID": {
+            "DATE_CHECKBOX_TITLE": "Группировать по дате",
+            "ROWS": {
+                "ROW1": "Группа статей ДДС",
+                "ROW2": "Статья ДДС",
+                "ROW3": "Тип"
+            },
+            "COLUMNS": {
+            "COLUMN1": "Валюта"
+            },
+            "DATAS": {
+                "DATA1": "Дата",
+                "DATA2": "Сумма"
+            }
+        },
+        "POPUP_WINDOW": {
+            "TITLE": "Документы",
+            "GRID_COLUMNS": {
+                "COLUMN1": "Дата проведения",
+                "COLUMN2": "Код",
+                "COLUMN3": "Описание",
+                "COLUMN4": "Сумма",
+                "COLUMN5": "Валюта"
+            }
+        },
+        "FILE_NAME": "Отчёт по ДДС"
+    },
+    "MONEY_CUSTOMER_RETURNS_PAGE": {
+        "CAPTION": "ВОЗВРАТЫ ДЕНЕЖНЫХ СРЕДСТВ ПОКУПАТЕЛЯМ",
+        "PIVOT_GRID": {
+            "DATE_CHECKBOX_TITLE": "Группировать по дате",
+            "COLUMNS": {
+            "COLUMN1": "Валюта"
+            },
+            "ROWS": {
+                "ROW1": "Контрагент",
+                "ROW2": "Документ"
+            },
+            "DATAS": {
+                "DATA1": "Дата",
+                "DATA2": "Сумма"
+            }
+        }
+    },
+    "ACCOUNT_RECEIVABLE_TURNOVER_REPORT_PAGE": {
+        "CAPTION": "СРЕДНИЕ СРОКИ ОПЛАТЫ ПОКУПАТЕЛЕЙ",
+        "TREND_VALUE_AXIS_TITLE": "СРЕДНИЙ СРОК ОПЛАТЫ, ДНИ",
+        "TREND_SERIES_NAME": "СРЕДНИЙ СРОК ОПЛАТЫ",
+        "CHECKBOX_TITLE": "Показывать только покупателей с плохой платежной дисциплиной",
+        "COMPOUND_DATA_GRID": {
+            "COLUMNS": {
+                "COLUMN1": "Компания",
+                "COLUMN2": "Контрагент",
+                "COLUMN3": "Контракт",
+                "COLUMN4": "Валюта",
+                "COLUMN5": "Сумма кредита",
+                "COLUMN6": "Средний долг",
+                "COLUMN7": "Платежи",
+                "COLUMN8": "Отсрочка по контракту, дней",
+                "COLUMN9": "Средний срок оплаты, дней"
+            }
+        },
+        "EXPORTFILE_NAME": "Средние сроки оплаты покупателей",
+        "POPUP_WINDOW": {
+            "TITLE": "ВЗАИМОРАСЧЁТЫ ПО КОНТРАКТУ ",
+            "INFO_HEADER_PART1": ", ",
+            "INFO_HEADER_PART2": ", отсрочка ",
+            "INFO_HEADER_PART3": " дней",
+            "LINE_CHART_TITLE": "ДОЛГ ПОКУПАТЕЛЯ, ",
+            "BAR_CHART_TITLE": "ОТГРУЗКИ/ОПЛАТЫ, ",
+            "LINE_SERIES_NAME1": "Нормальная задолженность",
+            "LINE_SERIES_NAME1": "Просроченная задолженность",
+            "LINE_SERIES_NAME1": "Проблемная задолженность",
+            "BAR_SERIES_NAME1": "Отгрузки",
+            "BAR_SERIES_NAME1": "Возвраты товара",
+            "BAR_SERIES_NAME1": "Оплаты",
+            "BAR_SERIES_NAME1": "Возвраты денег",
+            "BAR_SERIES_NAME1": "Прочее",
+            "CONSTANT_LINE_TEXT": "Сумма кредита "
+        }
+    },
+    "SUPPLIERS_AVERAGE_PAYMENT_PAGE": {
+        "CAPTION": "СРЕДНИЕ СРОКИ ОПЛАТЫ ПОСТАВЩИКАМ",
+        "TREND_VALUE_AXIS_TITLE": "СРЕДНИЙ СРОК ОПЛАТЫ, ДНИ",
+        "TREND_SERIES_NAME": "СРЕДНИЙ СРОК ОПЛАТЫ",
+        "COMPOUND_DATA_GRID": {
+            "COLUMNS": {
+                "COLUMN1": "Компания",
+                "COLUMN2": "Контрагент",
+                "COLUMN3": "Контракт",
+                "COLUMN4": "Валюта",
+                "COLUMN5": "Сумма кредита",
+                "COLUMN6": "Средний долг",
+                "COLUMN7": "Платежи",
+                "COLUMN8": "Отсрочка по контракту, дней",
+                "COLUMN9": "Средний срок оплаты, дней"
+            }
+        },
+        "EXPORTFILE_NAME": "Средние сроки оплаты поставщикам",
+        "POPUP_WINDOW": {
+            "TITLE": "ВЗАИМОРАСЧЁТЫ ПО КОНТРАКТУ ",
+            "INFO_HEADER_PART1": ", ",
+            "INFO_HEADER_PART2": ", отсрочка ",
+            "INFO_HEADER_PART3": " дней",
+            "LINE_CHART_TITLE": "ДОЛГ ПОКУПАТЕЛЯ, ",
+            "BAR_CHART_TITLE": "ОТГРУЗКИ/ОПЛАТЫ, ",
+            "LINE_SERIES_NAME1": "Нормальная задолженность",
+            "LINE_SERIES_NAME1": "Просроченная задолженность",
+            "LINE_SERIES_NAME1": "Проблемная задолженность",
+            "BAR_SERIES_NAME1": "Отгрузки",
+            "BAR_SERIES_NAME1": "Возвраты товара",
+            "BAR_SERIES_NAME1": "Оплаты",
+            "BAR_SERIES_NAME1": "Возвраты денег",
+            "BAR_SERIES_NAME1": "Прочее",
+            "CONSTANT_LINE_TEXT": "Сумма кредита "
+        }
+    },
+    "TASK_GRID_PAGE": {
+        "CAPTION": "ЗАДАЧИ",
+        "CREATE_BUTTON_NAME": "Поставить задачу",
+        "TASK_GRID": {
+            "COLUMNS": {
+                "COLUMN1": "Номер",
+                "COLUMN2": "Дата создания",
+                "COLUMN3": "Статус",
+                "COLUMN4": "Отдел",
+                "COLUMN5": "Вид задачи",
+                "COLUMN6": "Ответственный",
+                "COLUMN7": "Исполнитель",
+                "COLUMN8": "Дата выполнения",
+                "COLUMN9": "Тема"
+            }
+        }
+    },
+    "TASK_CREATE_PAGE": {
+        "CAPTION": "ПОСТАНОВКА ЗАДАЧИ",
+        "CREATE_BUTTON_NAME": "Поставить задачу",
+        "FIELD1_TITLE": "Вид задачи",
+        "FIELD2_TITLE": "Компания",
+        "FIELD3_TITLE": "Тема",
+        "FIELD4_TITLE": "Содержание",
+        "PLACEHOLDER1": "Выберите вид задачи...",
+        "PLACEHOLDER2": "Выберите компанию..."
+    },
+    "TASK_INFO_PAGE": {
+        "CAPTION": "КАРТОЧКА ЗАДАЧИ",
+        "COMMENT_BUTTON_NAME": "Добавить комментарий",
+        "FIELD1_TITLE": "Номер",
+        "FIELD2_TITLE": "Тема",
+        "FIELD3_TITLE": "Дата создания",
+        "FIELD4_TITLE": "Состояние",
+        "FIELD5_TITLE": "Вид задачи",
+        "FIELD6_TITLE": "Компания",
+        "FIELD7_TITLE": "Срок выполнения",
+        "FIELD8_TITLE": "Новый срок выполнения",
+        "FIELD9_TITLE": "Ответственный сотрудник",
+        "FIELD10_TITLE": "Содержание",
+        "PLACEHOLDER1": "Введите комментарий...",
+        "GRID_COLUMNS": {
+            "COLUMN1": "Дата",
+            "COLUMN2": "Комментарий",
+            "COLUMN3": "Сотрудник"
+        },
+        "NOTIFY1": "ВЫБЕРИТЕ ВИД ЗАДАЧИ!",
+        "NOTIFY2": "ВВЕДИТЕ ТЕМУ!",
+        "NOTIFY3": "ЗАПОЛНИТЕ СОДЕРЖАНИЕ!",
+        "NOTIFY4": "Ошибка!",
+        "NOTIFY5": "Задача поставлена!"
+    },
+    "PARTNER_TASK_GRID_PAGE": {
+        "CAPTION": "ЗАДАЧИ ПАРТНЁРУ",
+        "CREATE_BUTTON_NAME": "Поставить задачу партнёру",
+        "PARTNER_TASK_GRID": {
+            "COLUMNS": {
+                "COLUMN1": "Номер",
+                "COLUMN2": "Дата создания",
+                "COLUMN3": "Статус",
+                "COLUMN4": "Вид задачи",
+                "COLUMN5": "Партнёр",
+                "COLUMN6": "Исполнитель",
+                "COLUMN7": "Дата выполнения",
+                "COLUMN8": "Тема",
+                "COLUMN9": "Контракт"
+            }
+        }
+    },
+    "PARTNER_TASK_CREATE_PAGE": {
+        "CAPTION": "ПОСТАНОВКА ЗАДАЧИ ПАРТНЁРУ",
+        "CREATE_BUTTON_NAME": "Поставить задачу партнёру",
+        "FIELD1_TITLE": "Партнёр",
+        "FIELD2_TITLE": "Контракт",
+        "FIELD3_TITLE": "Вид задачи",
+        "FIELD4_TITLE": "Тема",
+        "FIELD5_TITLE": "Содержание",
+        "PLACEHOLDER1": "Выберите партнёра...",
+        "PLACEHOLDER2": "Выберите контракт...",
+        "PLACEHOLDER3": "Выберите вид задачи..."
+    },
+    "PARTNER_TASK_INFO_PAGE": {
+        "CAPTION": "КАРТОЧКА ЗАДАЧИ ПАРТНЁРУ",
+        "COMMENT_BUTTON_NAME": "Добавить комментарий",
+        "FIELD1_TITLE": "Номер",
+        "FIELD2_TITLE": "Тема",
+        "FIELD3_TITLE": "Дата создания",
+        "FIELD4_TITLE": "Состояние",
+        "FIELD5_TITLE": "Вид задачи",
+        "FIELD6_TITLE": "Партнёр",
+        "FIELD7_TITLE": "Срок выполнения",
+        "FIELD8_TITLE": "Контракт",
+        "FIELD9_TITLE": "Содержание",
+        "PLACEHOLDER1": "Введите комментарий...",
+        "GRID_COLUMNS": {
+            "COLUMN1": "Дата",
+            "COLUMN2": "Комментарий",
+            "COLUMN3": "Сотрудник"
+        },
+        "NOTIFY1": "ВЫБЕРИТЕ ВИД ЗАДАЧИ!",
+        "NOTIFY2": "ВВЕДИТЕ ТЕМУ!",
+        "NOTIFY3": "ЗАПОЛНИТЕ СОДЕРЖАНИЕ!",
+        "NOTIFY4": "Ошибка!",
+        "NOTIFY5": "Задача поставлена!"
+    },
+    "PAYMENT_REQUEST_GRID_PAGE": {
+        "CAPTION": "ЗАЯВКИ НА РАСХОД",
+        "PAY_REQUEST_GRID": {
+            "COLUMNS": {
+                "COLUMN1": "Код заявки",
+                "COLUMN2": "Планируемая дата",
+                "COLUMN3": "Подтип документа",
+                "COLUMN4": "Компания",
+                "COLUMN5": "Контрагент",
+                "COLUMN6": "Назначение платежа",
+                "COLUMN7": "Тип получателя оплаты",
+                "COLUMN8": "Тип перевода",
+                "COLUMN9": "Валюта",
+                "COLUMN10": "Сумма валюты"
+            }
+        }
+    },
+    "PAYMENT_REQUEST_INFO_PAGE": {
+        "CAPTION": "ЗАЯВКА НА РАСХОД",
+        "APPROVE_BUTTON_NAME": "Подписать",
+        "REJECT_BUTTON_NAME": "Отклонить",
+        "FIELD1_TITLE": "КОД",
+        "FIELD2_TITLE": "Подтип документа",
+        "FIELD3_TITLE": "Планируемая дата",
+        "FIELD4_TITLE": "Контрагент",
+        "FIELD5_TITLE": "Назначение",
+        "FIELD6_TITLE": "Компания",
+        "FIELD7_TITLE": "Тип получателя",
+        "FIELD8_TITLE": "Тип перевода",
+        "FIELD9_TITLE": "Валюта",
+        "FIELD10_TITLE": "Сумма валюты",
+        "SIGN_GRID_CAPTION": "Подписи",
+        "SIGN_GRID_COLUMNS": {
+            "COLUMN1": "Подписант",
+            "COLUMN2": "Подписал"
+        },
+        "ATTACH_GRID_CAPTION": "Вложения",
+        "HINT": "Скачать",
+        "FILE_COMMAND1": "Скачать",
+        "FILE_COMMAND2": "Приложить",
+        "NOTIFY1": "Заявка подписана!",
+        "NOTIFY2": "Заявка отклонена!",
+        "NOTIFY2": "Комментарий обязателен!",
+        "POPUP_OPTIONS": {
+            "TITLE": "Отклонить заявку на расход",
+            "PLACEHOLDER": "Введите комментарий...",
+            "OK_BUTTON_NAME": "Отклонить заявку",
+            "CANCEL_BUTTON_NAME": "Отмена",
+            "SLIDER_LABELS": ["ни в какие ворота не лезет","через пень-колоду, но победили","хорошо, хотя и не без шероховатостей","блестяще, невозможно пожелать лучшего"]
+        }
+    },
+    "PROFIT_TRANDS_PAGE": {
+        "CAPTION": "ПОНЕДЕЛЬНАЯ ВАЛОВАЯ ПРИБЫЛЬ",
+        "CHART_CAPTION": "ПРИБЫЛЬ/ВЫРУЧКА/НАЦЕНКА",
+        "CHART": {
+            "SERIES": {
+                "SERIE1": "ПРИБЫЛЬ, РУБ",
+                "SERIE2": "ВЫРУЧКА, РУБ",
+                "SERIE3": "НАЦЕНКА, %"
+            },
+            "VALUE_AXIS": {
+                "AXIS1": "ПРИБЫЛЬ/ВЫРУЧКА, РУБ",
+                "AXIS2": "НАЦЕНКА, %"
+            }
+        }
+    },
+    "PROFIT_ANALYSIS_PAGE": {
+        "CAPTION": "ПРОДАЖИ",
+        "LEFT_GAUGE_TITLE": "БРЕНДЫ",
+        "RIGHT_GAUGE_TITLE": "КАТЕГОРИИ ТОВАРОВ",
+        "PIVOT_GRID": {
+            "DATE_CHECKBOX_TITLE": "Группировать по дате",
+            "FIELDS": {
+                "FIELD1": "Бренд",
+                "FIELD2": "Категория товара",
+                "FIELD3": "Товар",
+                "FIELD4": "Дата",
+                "FIELD5": "Выручка",
+                "FIELD6": "Прибыль",
+                "FIELD7": "Наценка, %"
+            }
+        },
+        "FILE_NAME": "Анализ валовой прибыли"
+    },
+    "MONEY_EXPENSES_PAGE": {
+        "CAPTION": "ЗАТРАТЫ",
+        "GAUGE_TITLE": "ПО СТАТЬЯМ ЗАТРАТ",
+        "CHART": {
+            "TITLE": "TOP-6 СТАТЕЙ ОПЕРАЦИОННЫХ ЗАТРАТ"
+        },
+        "PIVOT_GRID": {
+            "DATE_CHECKBOX_TITLE": "Группировать по дате",
+            "FIELDS": {
+                "FIELD1": "Статья затрат.Уровень 1",
+                "FIELD2": "Статья затрат.Уровень 2",
+                "FIELD3": "Затраты",
+                "FIELD4": "Дата"
+            }
+        }
+    },
+    "NET_PROFIT_PAGE": {
+        "CAPTION": "ЧИСТАЯ ПРИБЫЛЬ",
+        "GRID": {
+            "COLUMNS": {
+                "COLUMN1": "Группа",
+                "COLUMN2": "Прибыль"
+            }
+        }
+    },
+    "STOCK_DYNAMIC_BALANCE_PAGE": {
+        "CAPTION": "ДИНАМИКА СКЛАДСКИХ ОСТАТКОВ",
+        "CHART_CAPTION": "ДИНАМИКА СУММАРНОГО ОСТАТКА, РУБ/ЗАПАС, ДНЕЙ",
+        "CHART_CAPTION_ON" : "за",
+        "CHART": {
+            "SERIES": {
+                "SERIE1": "ОСТАТОК, РУБ",
+                "SERIE2": "ЗАПАС, ДНЕЙ"
+            },
+            "AXIS": {
+                "AXIS1": "ОСТАТОК, РУБ",
+                "AXIS2": "ЗАПАС, ДНЕЙ"
+            }
+        }
+    },
+    "STOCK_BALANCE_PAGE": {
+        "CAPTION": "ОСТАТКИ НА СКЛАДАХ",
+        "DATEBOX_CAPTION": "ОСТАТКИ НА ДАТУ:",
+        "GRID": {
+            "FIELDS": {
+                "FIELD1": "Категория товара",
+                "FIELD2": "Товар",
+                "FIELD3": "Склад",
+                "FIELD4": "Количество",
+                "FIELD5": "Остатки"
+            }
+        },
+        "FILE_NAME": "Остатки на складах"
+    },
+    "STOCK_UNMARKETABLE_PAGE": {
+        "CAPTION": "НЕПРОДАЮЩИЕСЯ ТОВАРЫ",
+        "GRID": {
+            "FIELDS": {
+                "FIELD1": "Срок давности",
+                "FIELD2": "Тип товара",
+                "FIELD3": "Товар",
+                "FIELD4": "Количество",
+                "FIELD5": "Остатки"
+            }
+        }
+    },
+    "PURCHASE_DELIVERY_DEBTS_TURNOVER_PAGE": {
+        "CAPTION": "СРЕДНИЕ СРОКИ ПОСТАВКИ ОТ ПОСТАВЩИКОВ",
+        "DATEBOX_CAPTION": "СРЕДНИЕ СРОКИ НА ДАТУ:",
+        "CHECKBOX_CAPTION": "Только с нарушениями сроков поставки",
+        "CHART": {
+            "AXIS": {
+                "AXIS1": "СРЕДНИЙ СРОК ПОСТАВКИ, ДНИ"
+            },
+            "SERIES": {
+                "SERIE1": "СРЕДНИЙ СРОК ПОСТАВКИ"
+            }
+        },
+        "GRID": {
+            "FIELDS": {
+                "FIELD1": "Поставщик",
+                "FIELD2": "Условие поставки",
+                "FIELD3": "Средний остаток, руб",
+                "FIELD4": "Принято на складе, руб",
+                "FIELD5": "Норматив срока поставки, дней",
+                "FIELD6": "Средний срок поставки, дни"
+            }
+        },
+        "FILE_NAME": "Средние сроки поставки от поставщиков"
+    },
+    "ARTICLES_TURNOVER_PAGE": {
+        "CAPTION": "СРЕДНИЕ СРОКИ РЕАЛИЗАЦИИ СКЛАДСКИХ ЗАПАСОВ",
+        "DATEBOX_CAPTION": "СРЕДНИЕ СРОКИ НА ДАТУ:",
+        "CHECKBOX_CAPTION": "Только с нарушениями нормативов по запасу",
+        "CHART": {
+            "AXIS": {
+                "AXIS1": "СРЕДНИЙ СРОК РЕАЛИЗАЦИИ, ДНИ"
+            },
+            "SERIES": {
+                "SERIE1": "СРЕДНИЙ СРОК ПОСТАВКИ"
+            }
+        },
+        "GRID": {
+            "FIELDS": {
+                "FIELD1": "Склад",
+                "FIELD2": "Товар",
+                "FIELD3": "Бренд",
+                "FIELD4": "Прибыль",
+                "FIELD5": "Процент присутствия",
+                "FIELD6": "Запас, дней",
+                "FIELD7": "Нормативный запас, дней"
+            }
+        },
+        "FILE_NAME": "Средние сроки поставки от поставщиков"
+    }
+}

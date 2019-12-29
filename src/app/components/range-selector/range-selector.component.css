@@ -1,0 +1,17 @@
+@media all and (min-width: 927px) {
+	dx-range-selector {
+		width:1200px;
+	}
+}
+
+@media all and (max-width: 1024px) {
+	dx-range-selector {
+		width:calc(100% - 50px);
+	}
+}
+
+@media all and (max-width: 927px) {
+	dx-range-selector {
+		width:calc(100% - 50px);
+	}
+}

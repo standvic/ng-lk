@@ -1,0 +1,142 @@
+<!--
+<div style="position: relative; left: 1100px">
+    <label>
+        {{ 'LANG.TITLE' | translate }}
+        <select #langSelect (change)="translate.use(langSelect.value)">
+            <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+        </select>
+    </label>
+</div>
+-->
+<br/><br/>
+<app-caption>{{"MAIN_PAGE.CASH_FLOW.CAPTION" | translate}}</app-caption>
+
+<app-money-grid 
+    [dataService]="'GetHighlightReport'" 
+    [firstColumnName]="'MAIN_PAGE.CASH_FLOW.GRID.NAME_COLUMN'| translate"
+></app-money-grid><br/>
+
+<app-average-money-chart></app-average-money-chart><br/><br/>
+
+<app-cash-flow-analysis-chart></app-cash-flow-analysis-chart><br/><br/>
+
+<app-average-oper-cash-flow-treelist></app-average-oper-cash-flow-treelist><br/><br/>
+
+<app-reference-list [links]="[{
+    'key': 'Подробнее о денежном потоке...',
+    'items': [{title: 'Отчёт о движении денежных средств', link: 'moneyCashBalance'},
+        {title: 'Просроченная дебиторская задолженность', link: 'moneyAccountReceivableWithOverdure'},
+        {title: 'Просроченная кредиторская  задолженность', link: 'moneyAccountPayableWithOverdure'},
+        {title: 'Покупатели с плохой платёжной дисциплиной', link: 'accountReceivableTurnoverReport'},
+        {title: 'Возвраты денежных средств покупателям', link: 'moneyCustomerReturns'}]
+    }]">
+</app-reference-list><br/><br/>
+
+<app-caption>{{"MAIN_PAGE.FINANCIAL_CYCLE.CAPTION" | translate}}</app-caption><br/>
+
+<app-finance-cycle-chart></app-finance-cycle-chart><br/><br/>
+
+<app-reference-list [links]="[{
+    'key': 'Подробнее о финансовом цикле...',
+    'items': [{title: 'Сроки оплат покупателей', link: 'accountReceivableTurnoverReport'},
+        {title: 'Сроки поставки поставщиков', link: 'purchaseDeliveryDebtsTurnover'},
+        {title: 'Сроки реализации складских запасов', link: 'articlesTurnover'},
+        {title: 'Сроки оплаты поставщикам', link: 'suppliersAveragePayment'}]
+    }]">
+</app-reference-list><br/><br/>
+
+<app-caption>{{"MAIN_PAGE.RPOFIT.CAPTION" | translate}}</app-caption><br/>
+
+<app-gross-profit-chart   
+    [dataService]="'GetMoneyProfitByMonths'"
+    [argumentField]="'MonthStarts'"
+    [argumentAxis]="{
+        argumentType: 'datetime',
+        tickInterval: 'month',
+        label: {
+            format: 'monthAndYear'
+        },
+        grid: {
+            visible: false
+        }
+    }"
+    [palette]="'Soft'"
+    [title]="'ВЫРУЧКА И ВАЛОВАЯ ПРИБЫЛЬ'"
+    >
+</app-gross-profit-chart><br/><br/>
+
+<app-grouped-profit-chart   
+    [dataService]="'GetGroupedProfitsByMonths'"
+    [argumentField]="'MonthDate'"
+    [argumentAxis]="{
+        argumentType: 'date',
+        tickInterval: 'month',
+        label: {
+            format: 'monthAndYear'
+        },
+        grid: {
+            visible: false
+        }
+    }"
+    [palette]="'Soft'"
+    [title]="'ОПЕРАЦИОННАЯ И ЧИСТАЯ ПРИБЫЛЬ'"
+    >
+</app-grouped-profit-chart><br/><br/>
+
+<app-reference-list [links]="[{
+    'key': 'Подробнее о прибыли...',
+    'items': [{title:'Отчет о продажах',link:'profitAnalysis'},
+            {title:'Затраты',link:'moneyExpenses'},
+            {title:'Чистая прибыль',link:'netProfit'}]
+    }]">
+</app-reference-list><br/>
+
+<app-caption>{{"MAIN_PAGE.BALANCE.CAPTION" | translate}}</app-caption><br/>
+
+<app-active-balance-tree-map></app-active-balance-tree-map><br/><br/>
+
+<app-passive-balance-tree-map></app-passive-balance-tree-map><br/><br/>
+
+<div style="width: 100%;">
+    <div style="display: inline-block; width: 49%; text-align: center">
+        ПРОСРОЧЕННАЯ ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ<br/>
+        (процент от общей дебиторской задолженности)
+        <app-grace-receivable-gauge></app-grace-receivable-gauge> 
+    </div>
+    <div style="display: inline-block; width: 49%; text-align: center">
+        <dx-popover
+            id="popover" 
+            target="#link"
+            showEvent="dxhoverstart"
+            hideEvent="dxhoverend"
+            position="top"
+            width="300"
+            contentTemplate="content"
+        >                    
+            <dxo-animation> 
+                <dxo-show type="pop">    
+                </dxo-show>
+                <dxo-hide
+                    type="fade"
+                    from="1"
+                    to="0"
+                >
+                </dxo-hide>
+            </dxo-animation>
+            <div *dxTemplate="let data = model of 'content'">
+                Проблемной признается просроченная задолженность сроком более 30 дней
+            </div>
+        </dx-popover>
+        <a id="link" style="cursor:pointer;white-space:nowrap;border-bottom:1px dashed;text-decoration:none;color:#147CB0">ПРОБЛЕМНАЯ</a> ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ<br/>
+        (процент от просроченной дебиторской задолженности)
+        <app-grace-payable-gauge></app-grace-payable-gauge>
+    </div>
+</div>
+
+<app-money-grid [dataService]="'GetHighlightAccountReceivableReport'"
+                [firstColumnName]="'MAIN_PAGE.BALANCE.RECEIVABLE_MONEY_GRID.NAME_COLUMN'| translate"
+></app-money-grid>
+
+<app-money-grid [dataService]="'GetHighlightAccountPayableReport'"
+                [firstColumnName]="'MAIN_PAGE.BALANCE.PAYABLE_MONEY_GRID.NAME_COLUMN'| translate"
+></app-money-grid>

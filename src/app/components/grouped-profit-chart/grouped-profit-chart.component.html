@@ -1,0 +1,65 @@
+<dx-chart
+    [dataSource]="dataSource"
+    [palette]="palette"
+    [argumentAxis]="argumentAxis"
+    [valueAxis]="[{
+                name: 'amount',
+                position:'left',
+                visible: true,
+                label: {
+                    customizeText: customizeText
+                },
+                format: 'decimal'
+            }, {
+                name: 'percent',
+                position: 'right',
+                visible: true,
+                showZero: true,
+                label: {
+                    format: 'percent'
+                },                
+                title: {
+                    text: 'Рентабельность продаж, %'
+                }
+            }]"
+    [series]="[
+        { valueField: 'OperProfitAmount', argumentField: argumentField, name: 'Операционная прибыль', axis: 'amount', type:'bar',color: '#e8c168' },
+        { valueField: 'NetProfitAmount', argumentField: argumentField, name: 'Чистая прибыль', axis: 'amount', type:'bar', color:'#99b57d' },
+        { valueField: 'ProfitSales', argumentField: argumentField, name: 'Рентабельность продаж по чистой прибыли', axis: 'percent', type:'spline', point: {visible: false},color: '#3366ff' }
+    ]"
+>
+    <dxo-common-series-settings
+        argumentField="state"
+        type="bar"
+        tagField="tag" 
+    >
+        <dxo-label [visible]="false"></dxo-label>
+    </dxo-common-series-settings>    
+    <dxo-title 
+        [text]="title"
+        horizontalAlignment="left"
+    >
+        <dxo-font size="14"></dxo-font>
+    </dxo-title>
+    <dxo-legend
+        [visible]="true"
+        verticalAlignment="bottom"
+        horizontalAlignment="center"
+    >        
+    </dxo-legend>
+    <dxo-loading-indicator
+        show="true"
+        text="Загрузка данных..."
+    >
+    </dxo-loading-indicator>
+    <dxo-tooltip
+        enabled="true"
+        [customizeTooltip]="customizeTooltip"
+    >
+        <dxo-format
+            type="currency"
+            precision="2"
+        ></dxo-format>
+        <dxo-font color="959595"></dxo-font>
+    </dxo-tooltip>
+</dx-chart>

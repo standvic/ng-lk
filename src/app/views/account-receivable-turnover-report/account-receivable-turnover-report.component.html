@@ -1,0 +1,55 @@
+<app-caption>{{"ACCOUNT_RECEIVABLE_TURNOVER_REPORT_PAGE.CAPTION" | translate}}</app-caption>
+<dx-chart 
+    [dataSource]="chartTurnoverDataSource"
+    palette="Harmony Light"
+    [valueAxis]="[{
+                name: 'Value',
+                position:'left',
+                tickInterval: 10,
+                format: 'decimal',
+                title: {
+                    text: 'СРЕДНИЙ СРОК ОПЛАТЫ, ДНИ'
+                }
+            }]"
+    [series]="[{
+        type: 'line',
+        name: 'СРЕДНИЙ СРОК ОПЛАТЫ',
+        axis: 'Value',
+        valueField: 'PaybackDays',
+        color: '#DA5859',
+        point: {
+            visible: false
+        }
+    }]"
+>
+    <dxo-common-series-settings 
+        argumentField="TransactionDate"
+    >        
+    </dxo-common-series-settings>
+    <dxo-title 
+        horizontalAlignment="left">
+        <dxo-font size="14"></dxo-font>
+    </dxo-title>
+    <dxo-legend [visible]="false"></dxo-legend>
+    <dxo-loading-indicator 
+        show="true"
+        text="Загрузка данных...">
+    </dxo-loading-indicator>
+    <dxo-argument-axis>
+        <dxo-label type="monthAndDay"></dxo-label>
+    </dxo-argument-axis>
+    <dxo-tooltip [enabled]="true"
+                 [shared]="true"
+                 [customizeTooltip]="customizeTooltip"
+    >
+        <dxo-font color="#959595">
+        </dxo-font>
+        <dxo-format type="currency"
+                    precision="2">
+        </dxo-format>
+    </dxo-tooltip>
+</dx-chart>
+
+<app-compound-data-grid>
+    
+</app-compound-data-grid>

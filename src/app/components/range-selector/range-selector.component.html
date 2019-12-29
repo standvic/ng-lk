@@ -1,0 +1,25 @@
+<dx-range-selector #rangeselector
+    minorTickInterval="day"
+    [value]="value"
+    [selectedRange]="[selectedStartValue, selectedEndValue]"
+    [dataSource]="rangeDataSource"
+    (onValueChanged)="onValueChanged($event)">
+    <dxo-size [height]="150"></dxo-size>
+    <dxo-chart [series]="series" >
+    </dxo-chart>
+    <dxo-loading-indicator show="true" text="{{'LOADING_INDICATOR' | translate}}"></dxo-loading-indicator>
+    
+    <dxo-minor-tick visible="false"></dxo-minor-tick>
+    
+    <dxo-scale
+        [startValue]="scaleStartValue"
+        [endValue]="scaleEndValue"
+        [minorTickInterval]="'day'"
+        [tickInterval]="'day'">
+        <dxo-label [visible]="false"></dxo-label>
+        <dxo-marker>
+            <dxo-label format="monthAndYear" customizeText="function(){return this.valueText;}"></dxo-label>
+        </dxo-marker>
+    </dxo-scale>
+    <dxo-slider-marker format="shortDate" color="#DA5859"></dxo-slider-marker>
+</dx-range-selector>

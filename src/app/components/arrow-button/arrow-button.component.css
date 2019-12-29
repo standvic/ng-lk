@@ -1,0 +1,27 @@
+/deep/ .rightArrow {
+    background-image: url('/assets/images/next.png'); 
+    float: right;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: inline-block;
+    height: 100%;
+    padding-top: 120px;
+}
+
+/deep/ .dx-button.rightArrow {
+    border: 0px none;
+}
+
+/deep/ .leftArrow {
+    background-image: url('/assets/images/prev.png');    
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: left;
+    display: inline-block;
+    height: 100%;
+    padding-top: 120px;
+}
+
+/deep/ .dx-button.leftArrow {
+    border: 0px none;
+}

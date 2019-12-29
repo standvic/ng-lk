@@ -1,0 +1,9 @@
+/deep/ * {
+    font-family: "Helvetica Neue","Segoe UI",Helvetica,Verdana,san-serif;
+}
+
+.dx-field { display: inline-block; width:100%}
+
+.dx-field-label {width: auto!important;}
+
+.dx-field-value { max-width: 145px; float: left}

@@ -1,0 +1,59 @@
+.doughnut-content {
+    display: table-cell;
+    background-color: transparent;        
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;    
+    position: relative;
+    /*width: 550px;*/    
+}
+
+.doughnut-content .dashboard-bottom {   
+    font-size: 14px;
+    /*margin-top: 27%;
+    margin-left: 41%;*/
+    height: 100px;
+    width: 100px;
+    position: absolute;    
+}
+
+@media all and (min-width: 927px) {
+	.doughnut-content {
+		width:550px;
+	}
+	.doughnut-content .dashboard-bottom {
+		margin-top: 27%;
+		margin-left: 41%;
+	}
+}
+
+@media all and (max-width: 1024px) {
+	.doughnut-content {
+		width:50%;
+	}
+	.doughnut-content .dashboard-bottom {
+		/*margin-top: 29%;*/
+		margin-top: 33%;
+		margin-left: 39%;
+	}
+}
+
+@media all and (max-width: 927px) {
+	.doughnut-content {
+		width:50%;
+	}
+	.doughnut-content .dashboard-bottom {
+		/*margin-top: 37%;*/
+		margin-top: 42%;
+		margin-left: 36%;
+	}
+}
+
+.dashboard-bottom .dashboard-text {   
+    position: relative;
+    top: 50%; 
+    transform: translateY(-50%);
+    text-align: center;
+    vertical-align: middle;
+}

@@ -1,0 +1,46 @@
+<div class="header-container">
+    <div class="hcontent">
+        <a class="logotype" href="/demo/"></a>
+        <nav>
+            <dx-menu
+                cssClass="top-menu"
+                [activeStateEnabled]="false"
+                [height]="60"
+                [dataSource]="menuRoutes"
+                itemsExpr="children"
+                showFirstSubmenuMode="onHover"
+                hideSubmenuOnMouseLeave="true"
+                selectionMode="none"
+            >
+                <div *dxTemplate="let i of 'item'">
+                    <a *ngIf="i.data" routerLink={{i.data.link}} routerLinkActive="dx-menu-active" class="menu-item dx-theme-text-color">
+                        {{i.data.title}}<!--{{ selectedChild(i) }}-->
+                    </a>
+                </div>
+            </dx-menu>
+            <!--
+            <dx-menu
+                cssClass="themes-menu"
+                [activeStateEnabled]="false"
+                [height]="60"
+                [dataSource]="menuThemes"
+                showFirstSubmenuMode="onHover"
+                hideSubmenuOnMouseLeave="true"
+                selectionMode="none"
+                (onItemClick)="changeTheme($event)"
+            >
+                <div *dxTemplate="let i of 'item'">
+                    <img *ngIf="i.icon" src="{{i.icon}}" class="dx-icon">
+                    <span *ngIf="i.text" class="dx-menu-item-text" [ngClass]="{ 'dx-theme-accent-as-text-color': i.value == currentTheme }">{{i.text}}</span>
+                </div>
+            </dx-menu>
+            -->
+            <div class="help">
+                <!--<a class="exit" [routerLink]="['signOut']"><img src="../../../assets/images/exit.png"/></a>-->
+                <a class="exit" [routerLink]="['signOut']"><img src="/demo/assets/images/exit.png"/></a>
+                <!--<span class="info-link" (click)="helpPopup.show()">?</span>
+                <app-help-popup #helpPopup></app-help-popup>-->
+            </div>
+        </nav>
+    </div>
+</div>

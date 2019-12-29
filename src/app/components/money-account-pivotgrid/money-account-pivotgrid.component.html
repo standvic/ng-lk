@@ -1,0 +1,44 @@
+<div class="dx-field" >
+        <div class="dx-field-label">{{caption}}</div>
+        <div class="dx-field-value">
+           <dx-date-box
+                [ngModel]="value"
+                (ngModelChange)="onDateChange($event)"
+                type="date">
+            </dx-date-box>
+        </div>
+</div>
+<dx-pivot-grid #pivotGrid
+    height="1080"
+    [allowSortingBySummary]="true"
+    [allowSorting]="false"
+    [allowFiltering]="false"
+    [allowExpandAll]="true"
+    [showBorders]="true"
+    [showColumnGrandTotals]="showColumnGrandTotals"
+    (onContextMenuPreparing)="contextMenuPreparing($event)"
+>
+    <dxo-data-source
+        [fields]="fields"
+        [store]="myStore"
+    >
+    </dxo-data-source>
+    <dxo-field-chooser [enabled]="false">
+    </dxo-field-chooser>
+    <dxo-export [enabled]="exportEnabled" [fileName]="exportFileName"></dxo-export>
+    <dxo-load-panel
+        height="150"
+        width="400"
+        text="{{'LOADING_INDICATOR' | translate}}"
+    >
+    </dxo-load-panel>
+    <dxo-field-panel
+        [showFilterFields]="false"
+        [allowFieldDragging]="true"
+        [showDataFields]="false"
+        [showColumnFields]="false"
+        [showRowFields]="true"
+        [visible]="true"
+    >
+    </dxo-field-panel>
+</dx-pivot-grid>

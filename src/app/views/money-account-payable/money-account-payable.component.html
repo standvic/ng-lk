@@ -1,0 +1,55 @@
+<app-caption>{{"MONEY_ACCOUNT_PAYABLE_PAGE.CAPTION" | translate}}</app-caption>
+<app-money-account-pivotgrid 
+    #MoneyAccountPivotgrid
+    [caption]="'MONEY_ACCOUNT_PAYABLE_PAGE.DATE_BOX_CAPTION' | translate" 
+    [(value)]="gridDate"
+    [dataService]="'GetMoneyAccountPayableDetailed'"
+    [fields]= "[{
+                    dataField: 'BudgetItemName',
+                    caption: 'Тип контрагента',
+                    area: 'row',
+                    areaIndex: 0,
+                    width: 100,
+                    sortOrder: 'desc',
+                    sortBySummaryField: 'AmountRUB'
+                }, {
+                    dataField: 'AgentName',
+                    caption: 'Контрагент',
+                    area: 'row',
+                    areaIndex: 1,
+                    width: 100,
+                    sortOrder: 'desc',
+                    sortBySummaryField: 'AmountRUB'
+                }, {
+                    dataField: 'AmountRUB',
+                    caption: 'RUB',
+                    area: 'data',
+                    dataType: 'number',
+                    summaryType: 'sum',
+                    format: {
+                        precision:0,
+                        type: 'fixedPoint'
+                    }
+                }, {
+                    dataField: 'AmountEUR',
+                    caption: 'EUR',
+                    area: 'data',
+                    dataType: 'number',
+                    summaryType: 'sum',
+                    format: {
+                        precision:0,
+                        type: 'fixedPoint'
+                    }
+                }, {
+                    dataField: 'AmountUSD',
+                    caption: 'USD',
+                    area: 'data',
+                    dataType: 'number',
+                    summaryType: 'sum',
+                    format: {
+                        precision:0,
+                        type: 'fixedPoint'
+                    }
+                }]"
+>
+</app-money-account-pivotgrid>

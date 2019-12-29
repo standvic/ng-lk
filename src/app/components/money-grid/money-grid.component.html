@@ -1,0 +1,70 @@
+<dx-data-grid 
+    id="balanceGrid"
+    [dataSource]="dataSource"
+    [showColumnLines]="false"
+    [showBorders]="false"
+>
+    <dxi-column 
+        dataField="BudgetItemName" 
+        [caption]="firstColumnName">
+    </dxi-column>
+    <dxi-column 
+        dataField="Rub" 
+        [caption]="'MAIN_PAGE.CASH_FLOW.GRID.RUB_COLUMN'| translate" 
+        format="fixedPoint"
+        [calculateCellValue]="calculateCellValueRub">
+    </dxi-column>
+    <dxi-column 
+        dataField="Usd" 
+        [caption]="'MAIN_PAGE.CASH_FLOW.GRID.USD_COLUMN'| translate"
+        format="fixedPoint"
+        [calculateCellValue]="calculateCellValueUsd">
+    </dxi-column>
+    <dxi-column 
+        dataField="Eur" 
+        [caption]="'MAIN_PAGE.CASH_FLOW.GRID.EUR_COLUMN'| translate"
+        format="fixedPoint"
+        [calculateCellValue]="calculateCellValueEur">
+    </dxi-column>
+    <dxi-column 
+        dataField="Base" 
+        [caption]="'MAIN_PAGE.CASH_FLOW.GRID.CURRENCY_BALANCE_COLUMN'| translate"
+        format="fixedPoint"
+        [calculateCellValue]="calculateCellValueBase">
+    </dxi-column>
+    <dxo-load-panel 
+        height="150"
+        width="400"
+        text="Загрузка данных...">
+    </dxo-load-panel>
+    <dxo-summary>
+        <dxi-total-item
+            column="BudgetItemName"
+            displayFormat="ИТОГО:">
+        </dxi-total-item>
+        <dxi-total-item
+            column="Rub"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+        <dxi-total-item
+            column="Usd"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+        <dxi-total-item
+            column="Eur"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+            <dxi-total-item
+            column="Base"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+    </dxo-summary>
+</dx-data-grid>

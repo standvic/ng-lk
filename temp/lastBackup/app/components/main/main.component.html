@@ -1,0 +1,448 @@
+
+<h1 style="margin-left:8px;font-size:16pt">ДЕНЕЖНЫЙ ПОТОК</h1><br/>
+
+<!-------------------------------------- остатки денежных средств --------------------------------------------------->
+
+<dx-data-grid 
+    id="balanceGrid"
+    [dataSource]="dataGridBalanceSource"
+    [showColumnLines]="false"
+    [showBorders]="false">
+    <dxi-column 
+        dataField="TypeName" 
+        caption="ОСТАТКИ ДЕНЕЖНЫХ СРЕДСТВ, ТЫС.">
+    </dxi-column>
+    <dxi-column 
+        dataField="Rub" 
+        caption="RUB" 
+        format="fixedPoint"
+        [calculateCellValue]="calculateCellValueRub">
+    </dxi-column>
+    <dxi-column 
+        dataField="Usd" 
+        caption="USD"
+        format="fixedPoint"
+        [calculateCellValue]="calculateCellValueUsd">
+    </dxi-column>
+    <dxi-column 
+        dataField="Eur" 
+        caption="EUR"
+        format="fixedPoint"
+        [calculateCellValue]="calculateCellValueEur">
+    </dxi-column>
+    <dxi-column 
+        dataField="Base" 
+        caption="В валюте баланса"
+        format="fixedPoint"
+        [calculateCellValue]="calculateCellValueBase">
+    </dxi-column>
+    <dxo-load-panel 
+        height="150"
+        width="400"
+        text="Загрузка данных...">
+    </dxo-load-panel>
+    <dxo-summary>
+        <dxi-total-item
+            column="TypeName"
+            displayFormat="ИТОГО:">
+        </dxi-total-item>
+        <dxi-total-item
+            column="Rub"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+        <dxi-total-item
+            column="Usd"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+        <dxi-total-item
+            column="Eur"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+            <dxi-total-item
+            column="Base"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+    </dxo-summary>
+</dx-data-grid>
+
+<!---------------------------------------- средний остаток денежных средств за последние 12 месяцев ------------------------------------------------->
+
+<dx-chart 
+    style="height: 200px;"
+    id="averageMoneyBalance"
+    [dataSource]="dataAverageMoneyBalanceSource"
+    palette="Soft"
+    [valueAxis]="[{
+          name: 'amount',
+          position:'left',
+          visible: true,
+          label: {
+              customizeText: customizeText
+          },
+          format: 'decimal'
+      }]">
+    <dxo-title 
+        text="СРЕДНИЙ ОСТАТОК ДЕНЕЖНЫХ СРЕДСТВ ЗА ПОСЛЕДНИЕ 12 МЕСЯЦЕВ, РУБ"
+        horizontalAlignment="left">
+        <dxo-font size="14"></dxo-font>
+    </dxo-title>
+    <dxo-common-series-settings 
+        argumentField="argName"
+        type="line">
+        <dxo-label [visible]="false"></dxo-label>
+    </dxo-common-series-settings>
+    <dxo-legend [visible]="false"></dxo-legend>
+    <dxo-loading-indicator 
+        show="true"
+        text="Загрузка данных...">
+    </dxo-loading-indicator>
+    <dxo-argument-axis argumentType="string">
+        <dxo-label type="month"></dxo-label>
+        <dxo-grid visible="true"></dxo-grid>
+    </dxo-argument-axis>
+    <dxo-tooltip [enabled]="true"
+                 [customizeTooltip]="averageMoneyBalanceCustomizeTooltip">
+        <dxo-format type="currency"
+                    precision="2">
+        </dxo-format>
+    </dxo-tooltip>
+    <dxi-series
+        name="ОСТАТКИ ДС"
+        axis="amount"
+        argumentField="argName"
+        valueField="Amount"
+        color="steelblue">
+        <dxo-point visible="true"></dxo-point>
+    </dxi-series>
+</dx-chart>        
+<br/><br/>
+
+<!---------------------------------------- структура денежного потока ------------------------------------------------->
+
+<dx-chart 
+    style="height: 300px;"
+    id="cashFlowAnalysis"
+    [dataSource]="dataCashFlowAnalysisSource"
+    palette="Soft"
+    [valueAxis]="[{
+          name: 'amount',
+          position:'left',
+          visible: true,
+          label: {
+              customizeText: customizeText
+          },
+          format: 'decimal'
+      }]">
+    <dxo-title 
+        text="СТРУКТУРА ДЕНЕЖНОГО ПОТОКА"
+        horizontalAlignment="left">
+        <dxo-font size="14"></dxo-font>
+    </dxo-title>
+    <dxo-common-series-settings 
+        argumentField="date"
+        type="bar">
+        <dxo-label [visible]="false"></dxo-label>
+    </dxo-common-series-settings> 
+    <dxo-legend [visible]="false"></dxo-legend>
+    <dxo-loading-indicator 
+        show="true"
+        text="Загрузка данных...">
+    </dxo-loading-indicator>  
+    <dxo-argument-axis argumentType="date"
+                       tickInterval="month">
+        <dxo-label format="monthAndYear"></dxo-label>
+        <dxo-grid visible="true"></dxo-grid>
+    </dxo-argument-axis>
+    <dxo-tooltip [enabled]="true"
+                 [customizeTooltip]="cashFlowAnalysisCustomizeTooltip">
+        <dxo-format type="currency"
+                    precision="2">
+        </dxo-format>
+    </dxo-tooltip>
+    <dxi-series
+        name="Прирост ДС по операционной деятельности"
+        axis="amount"
+        argumentField="date"
+        valueField="Oper"
+        color="steelblue">
+    </dxi-series>
+    <dxi-series
+        name="Прирост ДС по финансовой деятельности"
+        axis="amount"
+        argumentField="date"
+        valueField="Fin"
+        color="limegreen">
+    </dxi-series>
+    <dxi-series
+        name="Прирост ДС по инвестиционной деятельности"
+        axis="amount"
+        argumentField="date"
+        valueField="Invest"
+        color="red">
+    </dxi-series>
+    <dxi-series
+        name="Сумма"
+        type="line"
+        axis="amount"
+        argumentField="date"
+        valueField="Sum"
+        color="goldenrod">
+    </dxi-series>
+</dx-chart><br/><br/>  
+
+<!---------------------------------------- среднемесячный операционный денежный поток ------------------------------------------------->
+
+<dx-tree-list 
+    id="averageOperational"
+    [dataSource]="dataAverageOperationalSource"
+    keyExpr="Id"
+    parentIdExpr="ParentId"
+    showRowLines="true"
+    columnAutoWidth="true"
+    (onRowPrepared)="onRowPrepared($event)"
+    (onCellPrepared)="onCellPrepared($event)"
+    (onCellClick)="onCellClick($event)">
+    <dxi-column 
+        dataField="CostItemName" 
+        caption="СРЕДНЕМЕСЯЧНЫЙ ОПЕРАЦИОННЫЙ ДЕНЕЖНЫЙ ПОТОК, ТЫС.">
+    </dxi-column>
+    <dxi-column 
+        dataField="AvgAmount"
+        [calculateCellValue]="calculateCellValueAvgAmount"
+        caption="RUB">
+        <dxo-format
+            precision="0"
+            type="fixedPoint">
+        </dxo-format>
+    </dxi-column>
+    <dxi-column 
+        dataField="Index" 
+        [visible]="false"
+        [sortOrder]="asc">
+    </dxi-column>
+</dx-tree-list><br/>    
+
+<!---------------------------------------- подробнее о денежном потоке ------------------------------------------------->
+
+<dx-list 
+    #moneyList
+    height="100%"
+    [dataSource]="moneyLinks"
+    [grouped]="true"
+    [collapsibleGroups]="true"
+    [activeStateEnabled]="false"
+    [focusStateEnabled]="false"
+    [hoverStateEnabled]="false"
+    [groupTemplate]="groupTemplate" 
+    [itemTemplate]="itemTemplate"
+    (load)="collapseGroup(0)">
+</dx-list> <br/> <br/> 
+ 
+<!------------------------------------------------------------------------------------------------------------------------------->
+
+<h1 style="margin-left:8px;font-size:16pt">ФИНАНСОВЫЙ ЦИКЛ</h1><br/>
+
+<!----------------------------------------------- финансовый цикл ---------------------------------------------------------------->
+
+<dx-chart
+    id="finCycle"
+    [dataSource]="chartFinDataSource"
+    palette="Harmony Light"
+    [valueAxis]="attrVal">
+    <dxo-title 
+        horizontalAlignment="left">
+        <dxo-font size="14"></dxo-font>
+    </dxo-title>
+    <dxo-common-series-settings argumentField="Param">
+        <dxo-label [visible]="false"></dxo-label>
+    </dxo-common-series-settings>
+    <dxo-legend [visible]="false"></dxo-legend>
+    <dxo-loading-indicator 
+        show="true"
+        text="Загрузка данных...">
+    </dxo-loading-indicator>
+    <dxo-argument-axis>
+        <dxo-label overlappingBehavior="stagger"></dxo-label>
+    </dxo-argument-axis>
+    <dxo-tooltip [enabled]="true"
+                 [shared]="true"
+                 [customizeTooltip]="finCycleCustomizeTooltip">
+        <dxo-font color="#959595"></dxo-font>
+    </dxo-tooltip>
+    <dxi-series
+        name="ЭТАП ФИН. ЦИКЛА"
+        type="bar"
+        axis="Value"
+        valueField="Value"
+        color="#fac29a">
+    </dxi-series>
+</dx-chart> <br/><br/>   
+
+<!---------------------------------------- дебиторская задолженность ------------------------------------------------->
+
+<dx-data-grid 
+    id="debitorBalanceGrid"
+    [dataSource]="dataDebitorBalanceSource"
+    [showColumnLines]="false"
+    [showBorders]="false">
+    <dxo-load-panel 
+        height="150"
+        width="400"
+        text="Загрузка данных...">
+    </dxo-load-panel>
+    <dxo-remote-operations [sorting]="false"></dxo-remote-operations>
+    <dxo-sorting mode="single"></dxo-sorting>
+    <dxi-column 
+        dataField="BudgetItemName" 
+        caption="ДЕБИТОРСКАЯ ЗАДОЛЖЕННОСТЬ, ТЫС."
+        [allowSorting]="false"
+        width="370">
+    </dxi-column>
+    <dxi-column 
+        dataField="Rub" 
+        caption="RUB" 
+        format="fixedPoint"
+        [allowSorting]="false"
+        [calculateCellValue]="calculateCellValueRub">
+    </dxi-column>
+    <dxi-column 
+        dataField="Usd" 
+        caption="USD"
+        format="fixedPoint"
+        [allowSorting]="false"
+        [calculateCellValue]="calculateCellValueUsd">
+    </dxi-column>
+    <dxi-column 
+        dataField="Eur" 
+        caption="EUR"
+        format="fixedPoint"
+        [allowSorting]="false"
+        [calculateCellValue]="calculateCellValueEur">
+    </dxi-column>
+    <dxi-column 
+        dataField="Base" 
+        caption="В валюте баланса"
+        format="fixedPoint"
+        sortOrder="desc"
+        [allowSorting]="false"
+        [calculateCellValue]="calculateCellValueBase">
+    </dxi-column>
+    <dxo-summary>
+        <dxi-total-item
+            column="BudgetItemName"
+            displayFormat="ИТОГО:">
+        </dxi-total-item>
+        <dxi-total-item
+            column="Rub"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+        <dxi-total-item
+            column="Usd"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+        <dxi-total-item
+            column="Eur"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+            <dxi-total-item
+            column="Base"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+    </dxo-summary>
+</dx-data-grid>
+
+<!---------------------------------------- кредиторская задолженность ------------------------------------------------->
+
+<dx-data-grid id="creditorBalanceGrid"
+    [dataSource]="dataCreditorBalanceSource"
+    [showColumnLines]="false"
+    [showBorders]="false">
+    <dxo-load-panel 
+        height="150"
+        width="400"
+        text="Загрузка данных...">
+    </dxo-load-panel>
+    <dxo-remote-operations [sorting]="false"></dxo-remote-operations>
+    <dxo-sorting mode="single"></dxo-sorting>
+    <dxi-column 
+        dataField="BudgetItemName" 
+        caption="КРЕДИТОРСКАЯ ЗАДОЛЖЕННОСТЬ, ТЫС."
+        [allowSorting]="false"
+        width="370">
+    </dxi-column>
+    <dxi-column 
+        dataField="Rub" 
+        caption="RUB" 
+        format="fixedPoint"
+        [allowSorting]="false"
+        [calculateCellValue]="calculateCellValueRub">
+    </dxi-column>
+    <dxi-column 
+        dataField="Usd" 
+        caption="USD"
+        format="fixedPoint"
+        [allowSorting]="false"
+        [calculateCellValue]="calculateCellValueUsd">
+    </dxi-column>
+    <dxi-column 
+        dataField="Eur" 
+        caption="EUR"
+        format="fixedPoint"
+        [allowSorting]="false"
+        [calculateCellValue]="calculateCellValueEur">
+    </dxi-column>
+    <dxi-column 
+        dataField="Base" 
+        caption="В валюте баланса"
+        format="fixedPoint"
+        sortOrder="desc"
+        [allowSorting]="false"
+        [calculateCellValue]="calculateCellValueBase">
+    </dxi-column>
+    <dxo-summary>
+        <dxi-total-item
+            column="BudgetItemName"
+            displayFormat="ИТОГО:">
+        </dxi-total-item>
+        <dxi-total-item
+            column="Rub"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+        <dxi-total-item
+            column="Usd"
+            summaryType="sum"
+            valueFormat="decimal"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+        <dxi-total-item
+            column="Eur"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+            <dxi-total-item
+            column="Base"
+            summaryType="sum"
+            valueFormat="fixedPoint"
+            [customizeText]="customizeValue">
+        </dxi-total-item>
+    </dxo-summary>
+</dx-data-grid>

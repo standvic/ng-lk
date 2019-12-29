@@ -1,0 +1,59 @@
+<app-caption>{{"TASK_CREATE_PAGE.CAPTION" | translate}}</app-caption>
+
+<div class="dx-fieldset" id="item-container">
+    <div class="dx-field">
+        <div class="dx-field-label">{{"TASK_CREATE_PAGE.FIELD1_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-select-box
+                [dataSource]="issueTypes"
+                [placeholder]="'TASK_CREATE_PAGE.PLACEHOLDER1' | translate"
+                displayExpr="Name"
+                valueExpr="Id"
+                (onInitialized)="typeIssueInstanceTransition($event)"
+                (onValueChanged)="issueTypeValueChanged($event)">
+            </dx-select-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"TASK_CREATE_PAGE.FIELD2_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-select-box
+                [dataSource]="firms"
+                [disabled]="true"
+                [placeholder]="'TASK_CREATE_PAGE.PLACEHOLDER2' | translate"
+                displayExpr="Name"
+                valueExpr="Id"
+                (onInitialized)="firmInstanceTransition($event)"
+                (onValueChanged)="firmValueChanged($event)">
+            </dx-select-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <dx-load-panel 
+            [(visible)]="loadingVisible"
+            [position]="{ of: '#subject' }">
+        </dx-load-panel>
+        <div class="dx-field-label">{{"TASK_CREATE_PAGE.FIELD3_TITLE" | translate}}</div>
+        <div class="dx-field-value" id="subject">
+            <dx-text-box 
+                (onValueChanged)="subjectValueChanged($event)">
+            </dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"TASK_CREATE_PAGE.FIELD4_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-area 
+                height="200"
+                (onValueChanged)="contentValueChanged($event)">
+        </dx-text-area>
+        </div>
+    </div>
+</div>
+
+<dx-button
+    [text]="'TASK_CREATE_PAGE.CREATE_BUTTON_NAME' | translate"
+    type="default"
+    icon="runner"
+    (onClick)="buttonCreateIssue($event)">
+</dx-button>

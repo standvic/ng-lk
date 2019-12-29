@@ -1,0 +1,168 @@
+<app-caption>{{"TASK_INFO_PAGE.CAPTION" | translate}} &nbsp;&nbsp;&nbsp;{{id}}</app-caption>
+<br/>
+
+<app-rework-issue-command
+    [title]="'POPUP_HEADERS.INDICATE_REASON' | translate"
+    [id]="id"
+    [(reworkVisible)]="reworkVisible"
+>
+</app-rework-issue-command>
+
+<app-coordination-issue-command
+    [serviceName]="'CoordinationIssue'"
+    [id]="id"
+    [(coordinationVisible)]="coordinationVisible"
+>
+</app-coordination-issue-command>
+
+<app-send-notification-issue-command
+    [title]="'POPUP_HEADERS.SEND_NOTIFICATION' | translate"
+    [id]="id"
+    [(sendNotificationVisible)]="sendNotificationVisible"
+>
+</app-send-notification-issue-command>
+
+<app-change-date-issue-command
+    [id]="id"
+    [(changeDateVisible)]="changeDateVisible"
+>
+</app-change-date-issue-command>
+
+<app-approve-date-issue-command
+    [id]="id"
+    [(approveDateVisible)]="approveDateVisible"
+>
+</app-approve-date-issue-command>
+
+<app-not-relevant-issue-command
+    [title]="'POPUP_HEADERS.INDICATE_REASON' | translate"
+    [id]="id"
+    [(notRelevantVisible)]="notRelevantVisible"
+>
+</app-not-relevant-issue-command>
+
+<app-in-progress-issue-command
+    [title]="'POPUP_HEADERS.INDICATE_REASON' | translate"
+    [id]="id"
+    [(inProgressVisible)]="inProgressVisible"
+>
+</app-in-progress-issue-command>
+
+<app-completed-issue-command
+    [id]="id"
+    [(completedVisible)]="completedVisible"
+></app-completed-issue-command>
+
+<dx-data-grid #auxgrid [dataSource]="issue" [visible]="false"></dx-data-grid>
+
+
+<!--
+<div class="dx-fieldset" id="item-container">
+    <div class="dx-field">
+        <div class="dx-field-label">{{"TASK_INFO_PAGE.FIELD1_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="id" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+</div>
+-->
+<div class="dx-fieldset" id="item-container">
+    <div class="dx-field">
+        <div class="dx-field-label">{{"TASK_INFO_PAGE.FIELD2_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="subject" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"TASK_INFO_PAGE.FIELD3_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="startDate" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"TASK_INFO_PAGE.FIELD4_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="state" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <dx-load-panel 
+            [(visible)]="loadingTaskInfoVisible"
+            [position]="{ of: '#type' }">
+        </dx-load-panel>
+        <div class="dx-field-label">{{"TASK_INFO_PAGE.FIELD5_TITLE" | translate}}</div>
+        <div class="dx-field-value" id="type">
+            <dx-text-box [value]="type" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"TASK_INFO_PAGE.FIELD6_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="company" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"TASK_INFO_PAGE.FIELD7_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="endDate" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field" *ngIf="newEndDate">
+        <div class="dx-field-label">{{"TASK_INFO_PAGE.FIELD8_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="newEndDate" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"TASK_INFO_PAGE.FIELD9_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="employee" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"TASK_INFO_PAGE.FIELD10_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-area [value]="content" [readOnly]="true" height="100"></dx-text-area>
+        </div>
+    </div>
+</div>
+
+<div class="dx-fieldset" id="item-container">
+    <dx-load-panel 
+        [(visible)]="loadingAddCommentVisible"
+        [position]="{ of: '#commarea' }">
+    </dx-load-panel>
+    <dx-text-area 
+        height="50"
+        (onValueChanged)="commentValueChanged($event)"
+        [placeholder]="'TASK_INFO_PAGE.PLACEHOLDER1' | translate">
+    </dx-text-area>
+    <br/>
+    <div class="dx-field" id="commarea">
+        <dx-button
+           [text]="'TASK_INFO_PAGE.COMMENT_BUTTON_NAME' | translate"
+           type="default"
+           icon="comment"
+           (onClick)="buttonAddComment($event)">
+        </dx-button>
+    </div>
+    <dx-data-grid 
+        #comments 
+        [dataSource]="comm"
+        [columns]="[{
+            dataField: 'Date',
+            caption: 'Дата',
+            noDataText: 'Загрузка данных...',
+            customizeText: customizeText
+        },{
+            dataField: 'Comment',
+            caption: 'Комментарий'
+        },{
+            dataField: 'EmployeeName',
+            caption: 'Сотрудник'
+        }]"
+    >
+        <dxo-header-filter [visible]="true"></dxo-header-filter>
+    </dx-data-grid>
+</div>
+

@@ -1,0 +1,26 @@
+
+<dx-chart #myChart
+        [dataSource]="dataSource"
+        [series]="series"
+        [palette]="palette"
+        [commonSeriesSettings]="commonSeriesSettings"
+        [argumentAxis]="argumentAxis"
+        [valueAxis]="valueAxis"
+        [tooltip]="tooltip"
+        >
+        <dxo-title [text]="caption" horizontalAlignment="left">
+            <dxo-font size="14"></dxo-font>
+        </dxo-title>
+        <dxo-legend
+            position="inside"
+            horizontalAlignment="left"
+            [rowCount]="rowCount"
+            [customizeText]="customizeLegendText">
+            <dxo-border [visible]="true"></dxo-border>
+        </dxo-legend>
+        <dxo-loading-indicator show="true" text="{{'LOADING_INDICATOR' | translate}}"></dxo-loading-indicator>
+    </dx-chart>
+
+        <br>
+        <br>
+<app-period-button (buttonClick)="onButtonClick($event)" ></app-period-button>

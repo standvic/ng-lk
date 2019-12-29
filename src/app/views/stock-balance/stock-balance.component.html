@@ -1,0 +1,12 @@
+<app-caption>{{"STOCK_BALANCE_PAGE.CAPTION" | translate}}</app-caption>
+<app-money-account-pivotgrid 
+    #MoneyAccountPivotgrid
+    [caption]="'STOCK_BALANCE_PAGE.DATEBOX_CAPTION' | translate" 
+    [(value)]="gridDate"
+    [fields]= "fields"
+    [showColumnGrandTotals]="false"
+    [exportEnabled]="true"
+    [exportFileName]="'STOCK_BALANCE_PAGE.FILE_NAME' | translate"
+    (valueChange)="onDateChange($event)"
+>
+</app-money-account-pivotgrid>

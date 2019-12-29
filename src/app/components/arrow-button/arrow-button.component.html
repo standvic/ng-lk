@@ -1,0 +1,14 @@
+
+<dx-button *ngIf="isLeft;else rightbtn" [width]="width" [height]="height" class="leftArrow" (onClick)="onBtnClick()" [disabled]="isDisabled"></dx-button>
+<ng-template #rightbtn>  
+    <dx-button [width]="width" [height]="height" class="rightArrow" (onClick)="onBtnClick()" [disabled]="isDisabled"></dx-button>              
+</ng-template>   
+
+
+<!--
+class="rightArrow" class="leftArrow"
+[ngClass]="{leftArrow: isLeft}" [ngClass]="{rightArrow: !isLeft}"
+[class.leftArrow]="isLeft" [class.rightArrow]="!isLeft"
+
+[ngClass]="{leftArrow:isLeft}" [ngClass]="{rightArrow:!isLeft}"
+-->

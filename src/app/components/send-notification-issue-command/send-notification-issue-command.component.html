@@ -1,0 +1,53 @@
+<dx-load-panel 
+    [(visible)]="loadingPanelVisible"
+    [position]="{ of: '#notify' }">
+</dx-load-panel>
+
+<dx-popup
+    id="notify"
+    class="popup"
+    width="800"
+    height="400"
+    [showTitle]="true"
+    [title]="title"
+    [dragEnabled]="true"
+    [closeOnOutsideClick]="true"
+    [(visible)]="popupVisible"
+>
+    <div *dxTemplate="let data of 'content'">
+        <h3>{{"POPUP_HEADERS.CHOOSE_EMPLOYEES" | translate}}</h3>
+        <dx-list
+            [dataSource]="employees"
+            [height]="200"
+            [allowItemDeleting]="allowDeleting"
+            [itemDeleteMode]="deleteType"
+            [showSelectionControls]="true"
+            selectionMode="multiple"
+            [(selectedItems)]="selectedItems">
+        </dx-list>
+        <dx-text-box (onValueChanged)="commentValueChanged($event)" [placeholder]="'PAYMENT_REQUEST_INFO_PAGE.POPUP_OPTIONS.PLACEHOLDER' | translate"></dx-text-box>
+        <br/>
+        <dx-button
+            [text]="'TASK_COMMANDS.CANCEL' | translate"
+            type="normal"
+            icon=""
+            style="float: right; margin-left: 20px"
+            (onClick)="cancelFunc($event)">
+        </dx-button>&nbsp;
+        <dx-button
+            [text]="'TASK_COMMANDS.OK' | translate"
+            type="default"
+            icon=""
+            style="float: right"
+            (onClick)="okFunc($event)">
+        </dx-button>
+    </div>
+</dx-popup>
+<dx-button
+    [text]="'TASK_COMMANDS.SEND_NOTIFICATION' | translate"
+    type="default"
+    icon="message"
+    (onClick)="sendNotificationButton($event)"
+    [(visible)]="sendNotificationVisible">
+</dx-button>&nbsp;
+

@@ -1,0 +1,10 @@
+<app-caption>{{"MONEY_BALANCE_PAGE.CAPTION" | translate}}</app-caption>
+<app-money-account-pivotgrid 
+    #MoneyAccountPivotgrid
+    [caption]="'MONEY_BALANCE_PAGE.DATEBOX_CAPTION' | translate" 
+    [(value)]="gridDate"
+    [dataService]="'GetMoneyBalanceDetailed'"
+    [fields]= "fields"
+    [showColumnGrandTotals]="false"
+>
+</app-money-account-pivotgrid>

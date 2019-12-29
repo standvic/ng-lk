@@ -1,0 +1,42 @@
+<div class="pageworkspace">
+            <div class="wrapper">
+                <div class="content-wrapper">
+                    <div class="content">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+                <div class="footer-gap"></div>
+            </div>
+            <footer>
+                <!--<div class="wrapper copyright dx-desktop-layout-copyright">2016&nbsp;&copy;&nbsp;Copyright Text</div>-->
+            </footer>
+</div>
+<div class="form">            
+    <div class="dx-fieldset login" style="margin-top: 15%;">
+        <div style="font-size: 20px; text-align: center;">Вход</div>
+        <br />
+        <div class="dx-field" style="margin: 10px auto; width: 250px;">
+            <dx-text-box placeholder = "Введите логин" [(value)]="userName">> 
+                <dx-validator>
+                    <dxi-validation-rule type="required" message="Введите логин"></dxi-validation-rule>
+                </dx-validator>
+            </dx-text-box>
+        </div>
+        <div class="dx-field" style="margin: 10px auto; width: 250px;">
+            <dx-text-box placeholder = "Введите пароль" mode="password" [(value)]="password">> 
+                <dx-validator>
+                    <dxi-validation-rule type="required" message="Введите пароль"></dxi-validation-rule>
+                </dx-validator>
+            </dx-text-box>
+        </div>
+        <div class="dx-field" style="margin: 10px auto; width: 250px; text-align: center;">
+            <dx-button
+                    id="button"
+                    text="Войти"
+                    type="default"  
+                    [useSubmitBehavior]="true"
+                    (click)="onClick()">
+            </dx-button>
+        </div>
+    </div>
+</div>

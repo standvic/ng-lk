@@ -1,0 +1,14 @@
+?#item-container > .dx-field > .dx-field-label {
+    width: 20%;
+}
+
+#item-container > .dx-field > .dx-field-value {
+    width: 80%;
+}
+
+.pop {
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 1px dashed;
+    text-decoration: none;
+}

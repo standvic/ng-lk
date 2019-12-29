@@ -1,0 +1,29 @@
+<dx-tree-list 
+    id="averageOperational"
+    [dataSource]="dataAverageOperationalSource"
+    keyExpr="Id"
+    parentIdExpr="ParentId"
+    showRowLines="true"
+    columnAutoWidth="true"
+    (onRowPrepared)="onRowPrepared($event)"
+    (onCellPrepared)="onCellPrepared($event)"
+    (onCellClick)="onCellClick($event)">
+    <dxi-column 
+        dataField="CostItemName" 
+        caption="СРЕДНЕМЕСЯЧНЫЙ ОПЕРАЦИОННЫЙ ДЕНЕЖНЫЙ ПОТОК">
+    </dxi-column>
+    <dxi-column 
+        dataField="AvgAmount"
+        [calculateCellValue]="calculateCellValueAvgAmount"
+        caption="RUB">
+        <dxo-format
+            precision="0"
+            type="fixedPoint">
+        </dxo-format>
+    </dxi-column>
+    <dxi-column 
+        dataField="Index" 
+        [visible]="false"
+        [sortOrder]="'asc'">
+    </dxi-column>
+</dx-tree-list><br/>

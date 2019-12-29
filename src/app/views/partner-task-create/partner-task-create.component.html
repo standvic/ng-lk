@@ -1,0 +1,91 @@
+<app-caption>{{"PARTNER_TASK_CREATE_PAGE.CAPTION" | translate}}</app-caption>
+
+<div class="dx-fieldset" id="item-container">
+    <div class="dx-field">
+        <div class="dx-field-label">{{"PARTNER_TASK_CREATE_PAGE.FIELD1_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-select-box
+                [dataSource]="partners"
+                [placeholder]="'PARTNER_TASK_CREATE_PAGE.PLACEHOLDER1' | translate"
+                displayExpr="Name"
+                valueExpr="Id"
+                (onInitialized)="partnersInstancing($event)"
+                (onValueChanged)="partnersValueChanged($event)">
+            </dx-select-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"PARTNER_TASK_CREATE_PAGE.FIELD2_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-select-box
+                [dataSource]="contracts"
+                [disabled]="true"
+                [placeholder]="'PARTNER_TASK_CREATE_PAGE.PLACEHOLDER2' | translate"
+                displayExpr="ContractNumber"
+                valueExpr="Id"
+                (onInitialized)="contractsInstancing($event)"
+                (onValueChanged)="contractsValueChanged($event)">
+            </dx-select-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"PARTNER_TASK_CREATE_PAGE.FIELD3_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-drop-down-box
+                [(value)]="treeBoxValue"
+                [dataSource]="treeListStore"
+                [placeholder]="'PARTNER_TASK_CREATE_PAGE.PLACEHOLDER3' | translate"
+                displayExpr="Name"
+                valueExpr="Id"
+                height="auto"
+                [showClearButton]="true"
+                (onValueChanged)="syncTreeViewSelection($event)"
+            >
+                <div *dxTemplate="let data of 'content'">
+                    <dx-tree-view
+                        [dataSource]="treeListStore"
+                        dataStructure="plain"
+                        keyExpr="Id"
+                        parentIdExpr="ParentId"
+                        selectionMode="single"
+                        displayExpr="Name"
+                        height="250"
+                        [selectByClick]="true"
+                        (onContentReady)="$event.component.selectItem(treeBoxValue)"
+                        (onItemSelectionChanged)="itemSelectionChanged($event)"
+                    >
+                    </dx-tree-view>
+                </div>
+            </dx-drop-down-box>
+        </div>
+    </div>
+    
+    <div class="dx-field">
+        <dx-load-panel 
+            [(visible)]="loadingVisible"
+            [position]="{ of: '#subject' }">
+        </dx-load-panel>
+        <div class="dx-field-label">{{"PARTNER_TASK_CREATE_PAGE.FIELD4_TITLE" | translate}}</div>
+        <div class="dx-field-value" id="subject">
+            <dx-text-box 
+                (onValueChanged)="subjectValueChanged($event)">
+            </dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"PARTNER_TASK_CREATE_PAGE.FIELD5_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-area 
+                height="200"
+                (onValueChanged)="contentValueChanged($event)">
+        </dx-text-area>
+        </div>
+    </div>
+</div>
+
+<dx-button
+    [text]="'PARTNER_TASK_CREATE_PAGE.CREATE_BUTTON_NAME' | translate"
+    type="default"
+    icon="runner"
+    (onClick)="buttonCreatePartnerIssue($event)">
+</dx-button>

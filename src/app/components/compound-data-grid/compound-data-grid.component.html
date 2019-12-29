@@ -1,0 +1,63 @@
+<br/><br/><br/>
+    <dx-check-box
+        [ngModel]="value"
+        (ngModelChange)="onCheckboxChange($event)"
+    >
+    </dx-check-box>
+{{"ACCOUNT_RECEIVABLE_TURNOVER_REPORT_PAGE.CHECKBOX_TITLE" | translate}}
+
+<dx-data-grid
+    [dataSource]="dataAccountSource"
+    [showColumnLines]="false"
+    [showBorders]="false"
+    noDataText="'---'"
+    [hoverStateEnabled]="true"
+    (onCellClick)="cellClick($event)"
+    (onCellHoverChanged) ="cellHoverChanged($event)"
+    [columns]="columns"
+>
+    <dxo-selection mode="single"></dxo-selection>
+    <dxo-sorting mode="none"></dxo-sorting>
+    <dxo-header-filter visible="true"></dxo-header-filter>
+    <dxo-filter-row visible="auto"></dxo-filter-row>
+    <dxo-load-panel
+        height="150"
+        width="400"
+        [text]="'LOADING_INDICATOR' | translate"
+    >
+    </dxo-load-panel>        
+    <dxo-export
+        enabled="true"
+        [fileName]="'ACCOUNT_RECEIVABLE_TURNOVER_REPORT_PAGE.EXPORTFILE_NAME' | translate"
+    >
+    </dxo-export>        
+</dx-data-grid>
+
+<dx-popup
+        class="popup"
+        width="80%"
+        height="95%"
+        [showTitle]="true"
+        [title]="title"
+        [dragEnabled]="true"
+        [closeOnOutsideClick]="true"
+        [(visible)]="popupVisible"
+>
+    <div *dxTemplate="let data of 'content'">
+        <app-popup-turnover-content 
+            [company]="company"
+            [contract]="contract"
+            [agent]="agent"
+            [delay]="delay"
+            [currency]="currency"
+            [creditAmount]="creditAmount"
+            [contractID]="contractID"
+            [popwidth]="popwidth"
+            [popheight]="popheight"
+            [dataSourceLineChart]="dataDebt"
+            [dataSourceBarChart]="dataShipmentPayment"
+            [selectorScale]="selectorScale"
+        >
+        </app-popup-turnover-content>
+    </div>
+</dx-popup>

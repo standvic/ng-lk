@@ -1,0 +1,15 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-money-turnover',
+  templateUrl: './money-turnover.component.html',
+  styleUrls: ['./money-turnover.component.css']
+})
+export class MoneyTurnoverComponent implements OnInit {
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}

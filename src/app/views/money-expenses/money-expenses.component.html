@@ -1,0 +1,77 @@
+<app-caption>{{"MONEY_EXPENSES_PAGE.CAPTION" | translate}}</app-caption>
+
+<div style="width: 100%; display: inline-block;">
+    <div style="float:left;">
+        <app-arrow-button width="25" height="50" [isLeft]="true" (buttonClick)="leftArrowClick()"></app-arrow-button>
+    </div>
+    <div style="float:left;">
+        <app-range-selector #dateRangeSelector [rangeDataSource]="rangeDataSource" [series]="series" (rangeChanged)="onRangeChanged($event)"></app-range-selector>
+    </div>
+    <div style="float:left;">
+        <app-arrow-button width="25" height="50" [isLeft]="false" [isDisabled]="nextBtnDisabled" (buttonClick)="rightArrowClick()"></app-arrow-button>
+    </div>
+
+    <div style="width: 50%; margin: 0 auto;">
+        <app-doughnut #doughnut label="{{'MONEY_EXPENSES_PAGE.GAUGE_TITLE' | translate}}" dataService="GetMoneyExpensesByCostItem" argumentField="CostItemName" valueField="Amount"></app-doughnut>
+    </div>
+</div>
+
+<dx-chart #myChart style="height: 300px;"
+    [dataSource]="chartExpensesByMonthData"
+    palette="Soft"
+    [tooltip]="chartTooltip"
+    [argumentAxis]="chartArgumentAxis"
+    [valueAxis]="chartValueAxis">
+    <dxo-title 
+        text="{{'MONEY_EXPENSES_PAGE.CHART.TITLE' | translate}}"
+        horizontalAlignment="left"
+    >
+        <dxo-font size="14"></dxo-font>
+    </dxo-title>
+    <dxo-common-series-settings 
+        argumentField="date"
+        type="bar">
+        <dxo-label [visible]="false"></dxo-label>
+    </dxo-common-series-settings>
+    <dxo-legend 
+        visible="true"
+        verticalAlignment="bottom"
+        horizontalAlignment="center">
+    </dxo-legend>
+    <dxo-loading-indicator
+        show="true"
+        text="{{'LOADING_INDICATOR' | translate}}"
+    >
+    </dxo-loading-indicator> 
+</dx-chart>
+
+<dx-pivot-grid #pivotGrid style="margin-top: 50px;"
+        height="1080"
+        [showColumnTotals]="false"
+        [allowSortingBySummary]="true"
+        [allowExpandAll]="true"
+        [showBorders]="true"
+    >
+        <dxo-data-source
+            [fields]="gridFields"
+            [store]="gridStore"
+        >
+        </dxo-data-source>
+        <dxo-field-chooser [enabled]="true">
+        </dxo-field-chooser>
+        <dxo-load-panel
+            height="150"
+            width="400"
+            text="{{'LOADING_INDICATOR' | translate}}"
+        >
+        </dxo-load-panel>
+        <dxo-field-panel
+            [showFilterFields]="false"
+            [allowFieldDragging]="true"
+            [showDataFields]="false"
+            [showColumnFields]="false"
+            [showRowFields]="true"
+            [visible]="true"
+        >
+        </dxo-field-panel>
+</dx-pivot-grid>

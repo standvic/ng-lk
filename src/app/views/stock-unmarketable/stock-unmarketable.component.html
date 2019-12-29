@@ -1,0 +1,35 @@
+<app-caption>{{"STOCK_UNMARKETABLE_PAGE.CAPTION" | translate}}</app-caption>
+<br/>
+
+<dx-pivot-grid #pivotGrid
+        height="1080"
+        [allowSorting]="false"
+        [allowFiltering]="false"
+        [allowSortingBySummary]="true"
+        [allowExpandAll]="true"
+        [showBorders]="true"
+        (onContextMenuPreparing)= "contextMenuPreparing($event)"
+    >
+        <dxo-data-source
+            [fields]="fields"
+            [store]="myStore"
+        >
+        </dxo-data-source>
+        <dxo-field-chooser [enabled]="false">
+        </dxo-field-chooser>
+        <dxo-load-panel
+            height="150"
+            width="400"
+            text="{{'LOADING_INDICATOR' | translate}}"
+        >
+        </dxo-load-panel>
+        <dxo-field-panel
+            [showFilterFields]="false"
+            [allowFieldDragging]="true"
+            [showDataFields]="false"
+            [showColumnFields]="false"
+            [showRowFields]="true"
+            [visible]="true"
+        >
+        </dxo-field-panel>
+</dx-pivot-grid>

@@ -1,0 +1,34 @@
+<app-caption>{{"TASK_GRID_PAGE.CAPTION" | translate}}</app-caption>
+
+<dx-button
+    [text]="'TASK_GRID_PAGE.CREATE_BUTTON_NAME' | translate"
+    type="default"
+    icon="runner"
+    (onClick)="buttonClick($event)">
+</dx-button><br/><br/>
+
+<dx-data-grid
+    [dataSource]="gridDataSource"
+    noDataText="---"
+    [hoverStateEnabled]="true"
+    (onRowClick)="onRowClick($event)"
+    [columnAutoWidth]="true"
+    [columns]="columns"
+>
+    <dxo-header-filter [visible]="true"></dxo-header-filter>
+    <dxo-editing
+        mode="form"
+        [allowAdding]="false"
+        [allowUpdating]="false">
+    </dxo-editing>
+    <dxo-paging pageSize="20"></dxo-paging>
+    <dxo-pager
+        [showPageSizeSelector]="true"
+        [allowedPageSizes]="[20, 50, 100]"
+        [showInfo]="true">
+    </dxo-pager>
+    <dxo-selection mode="single"></dxo-selection>
+    <div *dxTemplate="let cellData of 'cellTemplate'">
+         <a [routerLink]="['/taskInfo/' + cellData.value]">{{cellData.value}}</a>
+    </div>
+</dx-data-grid>

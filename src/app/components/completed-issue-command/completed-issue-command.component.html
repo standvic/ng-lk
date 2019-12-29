@@ -1,0 +1,14 @@
+<dx-button
+    id="loadpan"
+    [text]="'TASK_COMMANDS.COMPLETED' | translate"
+    type="default"
+    icon="check"
+    (onClick)="completedButton($event)"
+    [(visible)]="completedVisible">
+</dx-button>&nbsp;
+
+<dx-load-panel 
+    [(visible)]="loadingPanelVisible"
+    [position]="{ of: '#loadpan' }">
+</dx-load-panel>
+

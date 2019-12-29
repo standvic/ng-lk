@@ -1,0 +1,71 @@
+<dx-pivot-grid
+    [dataSource]="{
+                fields: [{
+                    dataField: 'CurrencyName',
+                    caption: 'Валюта',
+                    area: 'row',
+                    areaIndex: 0,
+                    width: 100,
+                    sortOrder: 'desc',
+                    sortBySummaryField: 'Amount'
+                },{
+                    dataField: 'BudgetItemName',
+                    caption: 'Тип контрагента',
+                    area: 'row',
+                    areaIndex: 1,
+                    width: 100,
+                    sortOrder: 'desc',
+                    sortBySummaryField: 'Amount'
+                }, {
+                    dataField: 'AgentName',
+                    caption: 'Контрагент',
+                    area: 'row',
+                    areaIndex: 2,
+                    width: 100,
+                    sortOrder: 'desc',
+                    sortBySummaryField: 'Amount'
+                }, {
+                    dataField: 'GroupName',
+                    caption: 'Срок давности',
+                    area: 'column',
+                    customizeText: customizeText,
+                    sortingMethod: sortingMethod,
+                    sortOrder: 'asc',
+                    sortBySummaryField: 'Amount'
+                }, {
+                    dataField: 'Amount',
+                    caption: 'Сумма',
+                    area: 'data',
+                    dataType: 'number',
+                    summaryType: 'sum',
+                    format: {
+                        precision:2,
+                        type: 'fixedPoint'
+                    }
+                }],
+                store: this.myStore
+            }"
+    height="1080"
+    [allowSortingBySummary]="true"
+    [allowSorting]="false"
+    [allowFiltering]="false"
+    [allowExpandAll]="true"
+    [showBorders]="true"
+    [showRowGrandTotals]="false"
+>
+    <dxo-field-chooser [enabled]="false">
+    </dxo-field-chooser>
+    <dxo-load-panel
+        height="150"
+        width="400"
+        text="Загрузка данных..."
+    >
+    </dxo-load-panel>
+    <dxo-field-panel
+        [showFilterFields]="false"
+        [allowFieldDragging]="true"
+        [showDataFields]="false"
+        [showColumnFields]="false"
+        [showRowFields]="true"
+        [visible]="true"
+    >

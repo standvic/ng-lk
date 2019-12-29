@@ -1,0 +1,13 @@
+
+<app-caption>{{"STOCK_DYNAMIC_BALANCE_PAGE.CAPTION" | translate}}</app-caption>
+
+<app-money-dynamic-chart #myChart 
+    [dataSource]="chartDataSource" 
+    [series]="chartSeries" 
+    palette="Soft"
+    [commonSeriesSettings]="commonSeriesSettings"
+    [argumentAxis]="argumentAxis"
+    [valueAxis]="valueAxis"
+    [tooltip]="tooltip"
+    [alwaysUpdateTitle]="true"
+    caption="{{'STOCK_DYNAMIC_BALANCE_PAGE.CHART_CAPTION' | translate}}"></app-money-dynamic-chart>

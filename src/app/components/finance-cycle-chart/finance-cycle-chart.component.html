@@ -1,0 +1,65 @@
+<dx-chart
+    #finCycle
+    id="finCycle"
+    [dataSource]="chartFinDataSource"
+    palette="Harmony Light"
+    (onInitialized)="onFinCycleInitializedEventHandler($event)"
+    [customizeLabel]="customizeLabel"
+    [valueAxis]= "[{
+        name: 'Value',
+        position:'left',
+        tickInterval: 10,
+        format: 'decimal',
+        title: {
+            text: 'ИНТЕРВАЛ, ДНИ'
+        },
+        grid: {
+            color: '#d3d3d3',
+            opacity: null,
+            visible: true,
+            width: 1
+        },
+        constantLines: [{
+            label: {
+                text: 'Финансовый цикл ' + constCycle +' дней'
+            },
+            width: 2,
+            value: constCycle,
+            color: '#ff7c7c',
+            dashStyle: 'dash'
+        }],
+        constantLineStyle: {
+            paddingTopBottom: 5
+        },
+        max: constCycle > maxval ? constCycle + 10 : maxval,
+        min: constCycle < minval ? constCycle - 10 : minval
+    }]"
+>
+    <dxo-common-series-settings argumentField="Param">
+    </dxo-common-series-settings>
+    <dxo-title 
+        horizontalAlignment="left">
+        <dxo-font size="14"></dxo-font>
+    </dxo-title>
+    <dxo-legend [visible]="false"></dxo-legend>
+    <dxo-loading-indicator 
+        show="true"
+        text="Загрузка данных...">
+    </dxo-loading-indicator>
+    <dxo-argument-axis>
+        <dxo-label overlappingBehavior="stagger"></dxo-label>
+    </dxo-argument-axis>
+    <dxo-tooltip [enabled]="false"
+                 [shared]="true"
+                 [customizeTooltip]="finCycleCustomizeTooltip"
+    >
+        <dxo-font color="#959595"></dxo-font>
+    </dxo-tooltip>
+    <dxi-series
+        name="ЭТАП ФИН. ЦИКЛА"
+        type="bar"
+        axis="Value"
+        valueField="Value"
+        color="#fac29a">
+    </dxi-series>
+</dx-chart> <br/><br/>

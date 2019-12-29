@@ -1,0 +1,8 @@
+<app-caption>{{"MONEY_ACCOUNT_RECEIVABLE_PAGE.CAPTION" | translate}}</app-caption>
+<app-money-account-pivotgrid 
+    #MoneyAccountPivotgrid
+    [caption]="'MONEY_ACCOUNT_RECEIVABLE_PAGE.DATE_BOX_CAPTION' | translate" 
+    [(value)]="gridDate"
+    [dataService]="'GetMoneyAccountReceivableDetailed'" 
+>
+</app-money-account-pivotgrid>

@@ -1,0 +1,45 @@
+<div class="desktop-layout" >
+    <div class="page">
+        <header>
+            <div class="content">
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="logo" href="#main" title="Генератор"></a>
+                        </div>
+                        <ul class="nav navbar-nav navbar-right">
+                        <dx-menu
+                                #menu
+                                cssClass= "top-menu"
+                                activeStateEnabled="true"
+                                focusStateEnabled="false" 
+                                selectionMode="single"
+                                [dataSource]="mainMenu"
+                                displayExpr="text"
+                                [showFirstSubmenuMode]="showFirstSubmenuModes"
+                                orientation="horizontal"
+                                submenuDirection="auto"
+                                [hideSubmenuOnMouseLeave]="false"
+                                (onItemClick)="itemClick($event)">
+                                [(selectedItem)]="selectedItem"
+                        </dx-menu>
+                       </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <div class="pageworkspace">
+            <div class="wrapper">
+                <div class="content-wrapper">
+                    <div class="content">
+                        <router-outlet></router-outlet>
+                    </div>
+                </div>
+                <div class="footer-gap"></div>
+            </div>
+            <footer>
+                <!--<div class="wrapper copyright dx-desktop-layout-copyright">2016&nbsp;&copy;&nbsp;Copyright Text</div>-->
+            </footer>
+        </div>
+    </div>
+</div>

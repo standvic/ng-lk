@@ -1,0 +1,8 @@
+{
+	"AppService": {
+		"URL": "http://localhost:3000",
+		"Hostname": "localhost",
+		"Port": 3000
+	},
+        "FileStore": "fstore/"
+}

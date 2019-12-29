@@ -1,0 +1,169 @@
+<app-caption>{{"PAYMENT_REQUEST_INFO_PAGE.CAPTION" | translate}}</app-caption>
+
+<dx-data-grid #auxgrid [dataSource]="payReq" [visible]="false"></dx-data-grid>
+
+<div>
+    <dx-button
+        [text]="'PAYMENT_REQUEST_INFO_PAGE.APPROVE_BUTTON_NAME' | translate"
+        type="success"
+        icon="check"
+        (onClick)="approveButtonClick($event)">
+    </dx-button> &nbsp;
+    <dx-button
+        [text]="'PAYMENT_REQUEST_INFO_PAGE.REJECT_BUTTON_NAME' | translate"
+        type="danger"
+        icon="close"
+        (onClick)="rejectButtonClick($event)">
+    </dx-button>
+</div>
+
+<div class="dx-fieldset" id="item-container">
+    <div class="dx-field">
+        <div class="dx-field-label">{{"PAYMENT_REQUEST_INFO_PAGE.FIELD1_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="id" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+</div>
+
+<div class="dx-fieldset" id="item-container">
+    <div class="dx-field">
+        <div class="dx-field-label">{{"PAYMENT_REQUEST_INFO_PAGE.FIELD2_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="subtype" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"PARTNER_TASK_INFO_PAGE.FIELD3_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="plannedDate" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"PAYMENT_REQUEST_INFO_PAGE.FIELD4_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="contragent" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <dx-load-panel 
+            [(visible)]="loadingReqInfoVisible"
+            [position]="{ of: '#purpose' }">
+        </dx-load-panel>
+        <div class="dx-field-label">{{"PAYMENT_REQUEST_INFO_PAGE.FIELD5_TITLE" | translate}}</div>
+        <div class="dx-field-value" id="purpose">
+            <dx-text-box [value]="purpose" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"PAYMENT_REQUEST_INFO_PAGE.FIELD6_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="company" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"PAYMENT_REQUEST_INFO_PAGE.FIELD7_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="recipient" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"PAYMENT_REQUEST_INFO_PAGE.FIELD8_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="transfer" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"PAYMENT_REQUEST_INFO_PAGE.FIELD9_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="currency" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+    <div class="dx-field">
+        <div class="dx-field-label">{{"PAYMENT_REQUEST_INFO_PAGE.FIELD10_TITLE" | translate}}</div>
+        <div class="dx-field-value">
+            <dx-text-box [value]="amount" [readOnly]="true"></dx-text-box>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div  style="float:left;width:300px;">
+        <h2>
+            {{"PAYMENT_REQUEST_INFO_PAGE.ATTACH_GRID_CAPTION" | translate}}
+        </h2>
+        <dx-data-grid 
+            [dataSource]="attachments"
+            [hoverStateEnabled]="true"
+            [hint]="'PAYMENT_REQUEST_INFO_PAGE.HINT' | translate"
+            (onRowClick)="downloadFile($event)"
+            [columns]="[{
+                dataField: 'FileName',
+                caption: ''
+                }
+            ]"
+        >
+            <dxo-selection mode="single"></dxo-selection>
+        </dx-data-grid>
+    </div>
+    <div  style="float:right;width:400px;">
+        <h2>
+            {{"PAYMENT_REQUEST_INFO_PAGE.SIGN_GRID_CAPTION" | translate}}
+        </h2>
+        <dx-data-grid 
+            [dataSource]="signers"
+            [columnAutoWidth]="true"
+            [columns]="[{
+                dataField: 'SignerName',
+                caption: 'Подписант'
+                },{
+                dataField: 'IsApproved',
+                caption: 'Подписал',
+                datatype: 'boolean'
+                }
+            ]"
+        >
+            <dxo-selection mode="single"></dxo-selection>
+        </dx-data-grid>
+    </div>
+</div>
+
+<dx-popup
+        class="popup"
+        width="800"
+        height="300"
+        [showTitle]="false"
+        [title]="'PAYMENT_REQUEST_INFO_PAGE.POPUP_OPTIONS.TITLE' | translate"
+        [dragEnabled]="true"
+        [closeOnOutsideClick]="true"
+        [(visible)]="popupVisible"
+>
+    <div *dxTemplate="let data of 'content'">
+        <h2>Оценить уровень выполнения задачи</h2><br/>
+        <dx-slider
+            [min]="0"
+            [max]="3"
+            [value]="0"
+            (onValueChanged)="onValueChanged($event)"
+        >
+            <dxo-label [format]="format" [visible]="true"></dxo-label>
+        </dx-slider><br/><br/>
+        <h2>Комментарий</h2><br/>
+        <dx-text-box (onValueChanged)="commentValueChanged($event)" [placeholder]="'PAYMENT_REQUEST_INFO_PAGE.POPUP_OPTIONS.PLACEHOLDER' | translate"></dx-text-box>
+        <br/>
+        <dx-button
+            [text]="'PAYMENT_REQUEST_INFO_PAGE.POPUP_OPTIONS.CANCEL_BUTTON_NAME' | translate"
+            type="normal"
+            icon=""
+            style="float: right; margin-left: 20px"
+            (onClick)="cancelFunc($event)">
+        </dx-button>&nbsp;
+        <dx-button
+            [text]="'PAYMENT_REQUEST_INFO_PAGE.POPUP_OPTIONS.OK_BUTTON_NAME' | translate"
+            type="default"
+            icon=""
+            style="float: right"
+            (onClick)="rejectFunc($event)">
+        </dx-button>
+    </div>
+</dx-popup>

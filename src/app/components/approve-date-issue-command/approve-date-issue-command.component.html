@@ -1,0 +1,60 @@
+
+<dx-load-panel 
+    [(visible)]="loadingPanelVisible"
+    [position]="{ of: '#win' }">
+</dx-load-panel>
+
+<dx-popup
+    id="win"
+    class="popup"
+    width="800"
+    height="300"
+    [showTitle]="true"
+    [title]="'POPUP_HEADERS.APPROVE_COMPLETION_DATE' | translate"
+    [dragEnabled]="true"
+    [closeOnOutsideClick]="true"
+    [(visible)]="popupVisible"
+>
+    <div *dxTemplate="let data of 'content'">
+        <dx-check-box 
+            [value]="false"
+            (onValueChanged)="onCheckBoxValueChanged($event)"
+        >
+        </dx-check-box> Указать другую дату<br/><br/>
+        
+        <dx-date-box
+            [(value)]="date"
+            type="date"
+            [disabled]="disabled">
+        </dx-date-box><br/><br/>
+        
+        <dx-text-box 
+            (onValueChanged)="commentValueChanged($event)" 
+            [disabled]="disabled"
+            [placeholder]="'PAYMENT_REQUEST_INFO_PAGE.POPUP_OPTIONS.PLACEHOLDER' | translate">
+        </dx-text-box>
+        <br/>
+        <dx-button
+            [text]="'TASK_COMMANDS.CANCEL' | translate"
+            type="normal"
+            icon=""
+            style="float: right; margin-left: 20px"
+            (onClick)="cancelFunc($event)">
+        </dx-button>&nbsp;
+        <dx-button
+            [text]="'TASK_COMMANDS.OK' | translate"
+            type="default"
+            icon=""
+            style="float: right"
+            (onClick)="okFunc($event)">
+        </dx-button>
+    </div>
+</dx-popup>
+
+<dx-button
+    [text]="'TASK_COMMANDS.APPROVE_COMPLETION_DATE' | translate"
+    type="default"
+    icon="event"
+    (onClick)="approveDateButton($event)"
+    [(visible)]="approveDateVisible">
+</dx-button>&nbsp;

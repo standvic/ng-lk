@@ -1,0 +1,7 @@
+msrc
+msrc/app
+msrc/app/layout/header
+rsrc/app/services/menu
+msrc/app/services/rest-client
+msrc/app/views/main
+msrc/app/views/task-grid

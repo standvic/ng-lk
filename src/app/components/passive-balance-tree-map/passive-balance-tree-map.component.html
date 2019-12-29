@@ -1,0 +1,28 @@
+<dx-tree-map
+    #passivebalance
+    [dataSource]="dataSource"
+    idField="RowId"
+    parentField="ParentRowId"
+    valueField="Amount"
+    labelField="GroupName"
+    resolveLabelOverflow="ellipsis"
+    layoutAlgorithm="sliceanddice"
+    layoutDirection="leftTopRightBottom"
+    (onClick)="onClick($event)"
+>
+    <dxo-colorizer
+        palette="Dark Moon"
+        type="discrete"
+    >
+    </dxo-colorizer>
+    <dxo-tooltip
+        [enabled]="true"
+        [customizeTooltip]="customizeTooltip"
+    >
+        <dxo-format
+            precision="0"
+            type="fixedPoint"
+        >
+        </dxo-format>
+    </dxo-tooltip>
+</dx-tree-map>
